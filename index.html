@@ -1,204 +1,580 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Quote Solution | Compare Top-Rated US Rates & Coverage (2026)</title>
+    <title>Simple Quote Solutions | Compare Free US Rates & Coverage</title>
     <meta name="description" content="Compare official US insurance, debt relief, disability assistance, and home service rates from trusted licensed carriers. Fast, 100% free quotes online.">
+    <meta property="og:title" content="Simple Quote Solutions | Compare Free US Rates & Coverage">
+    <meta property="og:description" content="Fast, secure, and free quotes from trusted US licensed providers.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #0f172a; --accent: #2563eb; --cta: #16a34a; --cta-hover: #15803d; --bg: #f8fafc; --text: #0f172a; --gray: #64748b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background: var(--bg); color: var(--text); line-height: 1.6; }
-        .nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 20px; font-weight: 800; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .phone-badge { background: #eff6ff; border: 1px solid #bfdbfe; color: var(--accent); padding: 8px 16px; border-radius: 50px; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 14px; }
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 50px 5% 70px; text-align: center; }
-        .hero h1 { font-size: 2.2rem; font-weight: 800; max-width: 850px; margin: 0 auto 15px; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 25px; }
-        
-        .main-container { max-width: 1100px; margin: -40px auto 50px; padding: 0 20px; }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--accent); }
-        .card-icon { width: 45px; height: 45px; background: #eff6ff; color: var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 15px; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 8px; color: #1e293b; }
-        .card p { color: var(--gray); font-size: 0.9rem; margin-bottom: 20px; }
-        .card-btn { display: inline-block; width: 100%; text-align: center; background: #eff6ff; color: var(--accent); padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.2s; }
-        .card:hover .card-btn { background: var(--accent); color: #fff; }
-
-        /* Modal Popup Styles */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 15px; }
-        .modal { background: #fff; width: 100%; max-width: 480px; border-radius: 16px; padding: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); position: relative; animation: modalSlide 0.3s ease; }
-        @keyframes modalSlide { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 20px; color: var(--gray); cursor: pointer; background: none; border: none; }
-        .modal h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text); }
-        .modal p.sub { font-size: 0.85rem; color: var(--gray); margin-bottom: 20px; }
-        
-        .form-group { margin-bottom: 14px; }
-        .form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 5px; }
-        .form-group input, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; transition: border 0.2s; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--accent); }
-        .submit-btn { width: 100%; background: var(--cta); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 800; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
-        .submit-btn:hover { background: var(--cta-hover); }
-        .tcpa-notice { font-size: 0.7rem; color: #94a3b8; margin-top: 12px; line-height: 1.35; text-align: justify; }
-
-        .trust-bar { background: #fff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 25px 5%; text-align: center; margin-top: 40px; }
-        .trust-grid { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; }
-        .trust-item { font-size: 0.88rem; font-weight: 700; color: #475569; display: flex; align-items: center; gap: 8px; }
-
-        .footer { background: #0f172a; color: #94a3b8; padding: 40px 5% 25px; font-size: 0.85rem; text-align: center; }
-        .footer a { color: #fff; text-decoration: none; margin: 0 8px; }
+        :root {
+            --primary: #0A192F; --primary-light: #1E3A8A; --accent: #0D9488; --accent-hover: #0F766E;
+            --cta-green: #16A34A; --cta-green-hover: #15803D; --bg-light: #F8FAFC; --text-main: #0F172A;
+            --text-muted: #64748B; --border-color: #E2E8F0; --white: #FFFFFF;
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 20px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-card: 0 10px 25px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; color: var(--primary); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .top-bar { background-color: var(--primary); color: #94A3B8; font-size: 0.8rem; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .top-bar-links { display: flex; gap: 20px; }
+        .top-bar-links a:hover { color: var(--white); }
+        .navbar { background-color: var(--white); border-bottom: 1px solid var(--border-color); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-subtle); }
+        .logo { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--accent); }
+        .nav-menu { display: flex; align-items: center; gap: 25px; }
+        .nav-item { position: relative; }
+        .nav-link { font-weight: 500; color: var(--text-main); font-size: 0.95rem; display: flex; align-items: center; gap: 6px; padding: 8px 0; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent); }
+        .dropdown { position: absolute; top: 100%; left: 0; background: var(--white); border-radius: var(--radius-sm); box-shadow: var(--shadow-elevated); width: 260px; padding: 12px 0; display: none; border: 1px solid var(--border-color); z-index: 1100; }
+        .nav-item:hover .dropdown { display: block; animation: fadeIn 0.2s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .dropdown a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font-size: 0.9rem; color: var(--text-main); transition: background 0.15s, color 0.15s; }
+        .dropdown a i { color: var(--accent); width: 18px; }
+        .dropdown a:hover { background-color: var(--bg-light); color: var(--accent); }
+        .nav-cta { background-color: var(--cta-green); color: var(--white); padding: 10px 20px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: background 0.2s; }
+        .nav-cta:hover { background-color: var(--cta-green-hover); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); padding: 70px 5% 90px; position: relative; overflow: hidden; }
+        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; }
+        .hero-content h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; margin-bottom: 20px; color: var(--white); }
+        .hero-content h1 span { color: #38BDF8; }
+        .hero-content p { font-size: 1.12rem; color: #CBD5E1; margin-bottom: 30px; line-height: 1.5; }
+        .hero-badges { display: flex; gap: 20px; margin-top: 30px; font-size: 0.88rem; color: #94A3B8; }
+        .hero-badge-item { display: flex; align-items: center; gap: 8px; }
+        .hero-badge-item i { color: var(--accent); }
+        .quick-form-card { background: var(--white); color: var(--text-main); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--shadow-elevated); }
+        .quick-form-card h3 { font-size: 1.25rem; margin-bottom: 6px; }
+        .quick-form-card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: #334155; margin-bottom: 6px; }
+        .form-control { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15); }
+        .btn-primary-block { width: 100%; background-color: var(--cta-green); color: var(--white); border: none; padding: 14px; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-primary-block:hover { background-color: var(--cta-green-hover); }
+        .phone-cta-banner { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+        .phone-cta-banner a { color: var(--primary); font-weight: 700; }
+        .section-padding { padding: 80px 5%; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 55px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 12px; }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .step-card { background: var(--white); padding: 35px 25px; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-card); position: relative; transition: transform 0.2s; }
+        .step-card:hover { transform: translateY(-5px); }
+        .step-num { position: absolute; top: -18px; left: 25px; background: var(--accent); color: var(--white); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+        .step-card h3 { font-size: 1.2rem; margin-bottom: 12px; margin-top: 10px; }
+        .step-card p { color: var(--text-muted); font-size: 0.92rem; }
+        .verticals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .vertical-card { background: var(--white); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-card); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; cursor: pointer; }
+        .vertical-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-elevated); }
+        .vertical-img-wrap { height: 180px; position: relative; overflow: hidden; }
+        .vertical-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .vertical-card:hover .vertical-img-wrap img { transform: scale(1.05); }
+        .vertical-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+        .vertical-body h3 { font-size: 1.25rem; margin-bottom: 8px; }
+        .vertical-body p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .card-link-btn { background-color: #EFF6FF; color: var(--primary-light); padding: 10px 16px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
+        .vertical-card:hover .card-link-btn { background-color: var(--primary-light); color: var(--white); }
+        .back-nav { margin-bottom: 30px; }
+        .back-btn { background: var(--white); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; color: var(--text-main); display: inline-flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s; }
+        .back-btn:hover { background-color: var(--border-color); }
+        .vertical-detail-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; }
+        .vertical-info h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .vertical-info p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 25px; }
+        .benefits-list { margin-bottom: 30px; }
+        .benefit-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 0.95rem; font-weight: 500; }
+        .benefit-item i { color: var(--accent); font-size: 1.1rem; margin-top: 3px; }
+        .quote-wizard-card { background: var(--white); padding: 35px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-elevated); }
+        .wizard-step-pane { display: none; }
+        .wizard-step-pane.active { display: block; animation: fadeIn 0.3s ease; }
+        .wizard-actions { display: flex; gap: 12px; margin-top: 20px; }
+        .btn-secondary { background: var(--border-color); color: var(--text-main); border: none; padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; }
+        .tcpa-checkbox-wrap { display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; }
+        .tcpa-checkbox-wrap input[type="checkbox"] { margin-top: 3px; cursor: pointer; }
+        .faq-accordion { margin-top: 50px; }
+        .faq-accordion h3 { font-size: 1.5rem; margin-bottom: 20px; }
+        .faq-item { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; }
+        .faq-question { padding: 18px 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.98rem; }
+        .faq-question i { transition: transform 0.2s; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { padding: 0 20px 18px; color: var(--text-muted); font-size: 0.92rem; display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        .footer { background-color: var(--primary); color: #94A3B8; padding: 60px 5% 30px; font-size: 0.88rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); font-size: 1rem; margin-bottom: 18px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #94A3B8; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-bottom { border-top: 1px solid #1E293B; padding-top: 25px; display: flex; flex-direction: column; gap: 15px; font-size: 0.78rem; color: #64748B; text-align: justify; }
+        .footer-disclaimer { line-height: 1.45; }
+        .footer-copyright { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .mobile-call-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--primary); color: var(--white); padding: 12px 20px; z-index: 1050; box-shadow: 0 -4px 10px rgba(0,0,0,0.15); justify-content: space-between; align-items: center; }
+        .mobile-call-bar a { background: var(--cta-green); color: var(--white); padding: 8px 16px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .cookie-banner { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: var(--white); border: 1px solid var(--border-color); padding: 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-elevated); z-index: 2000; display: none; }
+        .cookie-banner p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+        .cookie-actions { display: flex; gap: 10px; }
+        .btn-sm { padding: 8px 14px; font-size: 0.82rem; font-weight: 600; border-radius: var(--radius-sm); cursor: pointer; }
+        .static-page-view { display: none; max-width: 900px; margin: 50px auto; background: var(--white); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-card); }
+        .static-page-view.active { display: block; }
+        .static-page-view h1 { font-size: 2.2rem; margin-bottom: 20px; }
+        .static-page-view h2 { font-size: 1.4rem; margin-top: 25px; margin-bottom: 10px; }
+        .static-page-view p, .static-page-view ul { color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem; }
+        .static-page-view ul { margin-left: 20px; }
+        @media(max-width: 992px) {
+            .hero-container, .vertical-detail-grid, .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-call-bar { display: flex; }
+            body { padding-bottom: 60px; }
+        }
     </style>
+    <script>
+        const CONFIG = {
+            brandName: "Simple Quote Solutions",
+            phoneNumber: "+1-800-555-0199",
+            phoneHref: "tel:18005550199",
+            formEndpoint: "https://script.google.com/macros/s/AKfycbyAMPJQbQw7zctmpA3Flen-H2NG4gk1wKTDXNkS4J1uXavidkE2WFS51RbVU2mEZmGeYQ/exec",
+            address: "123 Financial Plaza, Suite 400, Wilmington, DE 19801",
+            supportEmail: "support@simplequotesolutions.com"
+        };
+    </script>
 </head>
 <body>
-
-    <nav class="nav">
-        <a href="#" class="logo"><i class="fa-solid fa-shield-halved"></i> Simple Quote Solution</a>
-        <a href="tel:18005550199" class="phone-badge"><i class="fa-solid fa-phone-volume"></i> 1-800-555-0199</a>
-    </nav>
-
-    <header class="hero">
-        <h1>Compare Free Quotes From Licensed US Providers</h1>
-        <p>Save time & money. Find competitive insurance rates, debt relief options, and verified home services instantly.</p>
+    <div class="top-bar">
+        <span><i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i> Verified US Licensed Carrier Network</span>
+        <div class="top-bar-links">
+            <a href="#" onclick="showStaticPage('about')">About Us</a>
+            <a href="#" onclick="showStaticPage('contact')">Contact</a>
+            <a href="#" onclick="showStaticPage('disclosures')">Ad Disclosures</a>
+        </div>
+    </div>
+    <header class="navbar">
+        <a href="#" onclick="showHome()" class="logo"><i class="fa-solid fa-file-shield"></i> Simple Quote</a>
+        <nav class="nav-menu">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Insurance <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+                <div class="dropdown">
+                    <a href="#" onclick="showVertical('auto-insurance')"><i class="fa-solid fa-car"></i> Auto Insurance</a>
+                    <a href="#" onclick="showVertical('home-insurance')"><i class="fa-solid fa-house"></i> Home Insurance</a>
+                    <a href="#" onclick="showVertical('health-insurance')"><i class="fa-solid fa-notes-medical"></i> Health Insurance</a>
+                    <a href="#" onclick="showVertical('final-expense')"><i class="fa-solid fa-heart-pulse"></i> Final Expense / Life</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Financial Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+                <div class="dropdown">
+                    <a href="#" onclick="showVertical('debt-relief')"><i class="fa-solid fa-hand-holding-dollar"></i> Debt Relief</a>
+                    <a href="#" onclick="showVertical('ssdi')"><i class="fa-solid fa-wheelchair"></i> SSDI Assistance</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Home Services <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+                <div class="dropdown">
+                    <a href="#" onclick="showVertical('pest-control')"><i class="fa-solid fa-bug"></i> Pest Control</a>
+                    <a href="#" onclick="showVertical('home-services')"><i class="fa-solid fa-solar-panel"></i> Solar & Roofing</a>
+                </div>
+            </div>
+            <a href="tel:18005550199" class="nav-cta"><i class="fa-solid fa-phone-volume"></i> <span class="dynamic-phone">+1-800-555-0199</span></a>
+        </nav>
+        <div class="mobile-toggle" onclick="showHome()"><i class="fa-solid fa-bars"></i></div>
     </header>
-
-    <div class="main-container">
-        <div class="cards-grid">
-            <div class="card" onclick="openModal('Debt Relief')">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                    <h3>Debt Relief</h3>
-                    <p>Reduce high-interest credit cards and medical debt legally without bankruptcy.</p>
+    <main id="main-app-container">
+        <div id="home-view" class="main-view active">
+            <section class="hero">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1>Compare Official US Rates & Coverage <span>Without the Hassle.</span></h1>
+                        <p>Connect with top-rated licensed carriers, accredited financial specialists, and verified home service professionals in seconds. 100% free comparison.</p>
+                        <div class="hero-badges">
+                            <div class="hero-badge-item"><i class="fa-solid fa-check-circle"></i> No Obligation</div>
+                            <div class="hero-badge-item"><i class="fa-solid fa-check-circle"></i> Secure & Confidential</div>
+                            <div class="hero-badge-item"><i class="fa-solid fa-check-circle"></i> Licensed US Network</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="quick-form-card">
+                            <h3>Find Your Rate Instantly</h3>
+                            <p>Select your service and enter your ZIP code to get started.</p>
+                            <form onsubmit="handleQuickZip(event)">
+                                <div class="form-group">
+                                    <label>Select Service Needed</label>
+                                    <select id="quickServiceSelect" class="form-control" required>
+                                        <option value="auto-insurance">Auto Insurance</option>
+                                        <option value="home-insurance">Home Insurance</option>
+                                        <option value="health-insurance">Health Insurance</option>
+                                        <option value="final-expense">Final Expense / Life Insurance</option>
+                                        <option value="debt-relief">Debt Relief Program</option>
+                                        <option value="ssdi">SSDI (Disability) Assistance</option>
+                                        <option value="pest-control">Pest Control Services</option>
+                                        <option value="home-services">Home Services (Roofing, Solar, etc.)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter ZIP Code</label>
+                                    <input type="text" id="quickZipInput" class="form-control" placeholder="e.g. 90210" pattern="[0-9]{5}" maxlength="5" required>
+                                </div>
+                                <button type="submit" class="btn-primary-block">Continue Free Quotes <i class="fa-solid fa-arrow-right"></i></button>
+                            </form>
+                            <div class="phone-cta-banner">Or speak with a specialist: <a href="tel:18005550199" class="dynamic-phone">+1-800-555-0199</a></div>
+                        </div>
+                    </div>
                 </div>
-                <span class="card-btn">Get Free Quote &rarr;</span>
-            </div>
-            <div class="card" onclick="openModal('Auto Insurance')">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-car-rear"></i></div>
-                    <h3>Auto Insurance</h3>
-                    <p>Compare top-tier US auto insurers and unlock major multi-policy discounts.</p>
+            </section>
+            <section class="section-padding">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>How Simple Quote Works</h2>
+                        <p>Our streamlined matching platform connects you with verified providers in three simple steps.</p>
+                    </div>
+                    <div class="steps-grid">
+                        <div class="step-card"><div class="step-num">1</div><h3>Select Your Service</h3><p>Choose from our comprehensive network of licensed insurance carriers, debt specialists, and home contractors.</p></div>
+                        <div class="step-card"><div class="step-num">2</div><h3>Share Your Details</h3><p>Complete our fast, secure multi-step questionnaire tailored specifically to your coverage or service requirements.</p></div>
+                        <div class="step-card"><div class="step-num">3</div><h3>Compare & Save</h3><p>Review competitive quotes from verified providers and choose the exact policy or program that fits your budget.</p></div>
+                    </div>
                 </div>
-                <span class="card-btn">Get Free Quote &rarr;</span>
-            </div>
-            <div class="card" onclick="openModal('Health Insurance')">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-notes-medical"></i></div>
-                    <h3>Health Insurance</h3>
-                    <p>Individual, family, and ACA Marketplace health coverage options tailored for you.</p>
+            </section>
+            <section class="section-padding" style="background-color: var(--white); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Explore Our Service Verticals</h2>
+                        <p>Browse our vetted categories designed to give you optimal protection and savings.</p>
+                    </div>
+                    <div class="verticals-grid">
+                        <div class="vertical-card" onclick="showVertical('auto-insurance')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Auto Insurance" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Auto Insurance</h3><p>Compare top-tier US car insurers and unlock major multi-policy discounts.</p></div><span class="card-link-btn">Compare Rates <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('home-insurance')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80" alt="Home Insurance" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Home Insurance</h3><p>Protect your property and belongings against storm, fire, and liability claims.</p></div><span class="card-link-btn">Compare Rates <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('health-insurance')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Health Insurance" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Health Insurance</h3><p>Individual, family, and ACA Marketplace health coverage options.</p></div><span class="card-link-btn">Explore Plans <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('final-expense')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Final Expense" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Final Expense / Life</h3><p>Protect your family from funeral costs and end-of-life financial stress.</p></div><span class="card-link-btn">View Coverage <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('debt-relief')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Debt Relief" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Debt Relief</h3><p>Reduce unsecured credit card and medical debt legally without bankruptcy.</p></div><span class="card-link-btn">Check Eligibility <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('ssdi')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="SSDI" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>SSDI Assistance</h3><p>Get professional advocate guidance through your Social Security Disability claim.</p></div><span class="card-link-btn">Check Claim <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('pest-control')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1584467735811-628b0fb6a18d?auto=format&fit=crop&w=600&q=80" alt="Pest Control" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Pest Control</h3><p>Connect with licensed local exterminators and professional pest management.</p></div><span class="card-link-btn">Find Exterminator <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                        <div class="vertical-card" onclick="showVertical('home-services')">
+                            <div class="vertical-img-wrap"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Home Services" loading="lazy"></div>
+                            <div class="vertical-body"><div><h3>Home Services</h3><p>Roofing, solar installation, windows, and HVAC upgrades.</p></div><span class="card-link-btn">Get Contractors <i class="fa-solid fa-arrow-right"></i></span></div>
+                        </div>
+                    </div>
                 </div>
-                <span class="card-btn">Get Free Quote &rarr;</span>
-            </div>
-            <div class="card" onclick="openModal('Final Expense')">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h3>Final Expense</h3>
-                    <p>Protect your family from funeral costs and end-of-life financial stress.</p>
-                </div>
-                <span class="card-btn">Get Free Quote &rarr;</span>
-            </div>
-            <div class="card" onclick="openModal('SSDI')">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-wheelchair"></i></div>
-                    <h3>SSDI Assistance</h3>
-                    <p>Get professional disability advocate help to approve your Social Security claim.</p>
-                </div>
-                <span class="card-btn">Check Eligibility &rarr;</span>
-            </div>
-            <div class="card" onclick="openModal('Home Warranty')">
-                <div>
-                    <div class="card-icon"><i class="fa-solid fa-house-chimney-crack"></i></div>
-                    <h3>Home Warranty</h3>
-                    <p>Coverage for major home HVAC systems, plumbing, and household appliances.</p>
-                </div>
-                <span class="card-btn">View Plans &rarr;</span>
-            </div>
+            </section>
         </div>
-    </div>
-
-    <!-- Modal Form Popup -->
-    <div class="modal-overlay" id="leadModal">
-        <div class="modal">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <h3 id="modalTitle">Get Instant Quote</h3>
-            <p class="sub">100% Free Service. Connect with a licensed specialist in seconds.</p>
-            
-            <form id="leadForm">
-                <input type="hidden" name="service" id="selectedService">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="fullName" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number (US Format)</label>
-                    <input type="tel" name="phone" placeholder="(555) 000-0000" pattern="[0-9() -]{10,15}" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="john@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label>ZIP Code</label>
-                    <input type="text" name="zipCode" placeholder="90210" pattern="[0-9]{5}" maxlength="5" required>
-                </div>
-                <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Request Free Quotes</button>
-                
-                <p class="tcpa-notice">
-                    <strong>TCPA Consent:</strong> By clicking, I provide express written consent authorizing Simple Quote Solution and its partner network to contact me via phone, automated dialer, SMS, or email at the number provided. Consent is not a condition of purchase.
-                </p>
-            </form>
-            <div id="formSuccess" style="display:none; text-align:center; padding: 20px 0;">
-                <i class="fa-solid fa-circle-check" style="font-size: 45px; color: var(--cta); margin-bottom: 10px;"></i>
-                <h3 style="color:#1e293b;">Request Received!</h3>
-                <p style="color:var(--gray); font-size:0.9rem; margin-top:5px;">A certified specialist will reach out to you shortly.</p>
-            </div>
+        <div id="vertical-view-container" class="container" style="display: none;">
+            <div class="back-nav"><button class="back-btn" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Back to All Services</button></div>
+            <div id="vertical-content-target"></div>
         </div>
-    </div>
-
-    <section class="trust-bar">
-        <div class="trust-grid">
-            <div class="trust-item"><i class="fa-solid fa-lock" style="color:var(--cta)"></i> 256-Bit SSL Secured</div>
-            <div class="trust-item"><i class="fa-solid fa-user-shield" style="color:var(--accent)"></i> 100% TCPA Compliant</div>
-            <div class="trust-item"><i class="fa-solid fa-award" style="color:#eab308"></i> Licensed US Carriers</div>
-        </div>
-    </section>
-
+        <div id="static-page-container" class="container"></div>
+    </main>
     <footer class="footer">
-        <p>&copy; 2026 Simple Quote Solution. All Rights Reserved.</p>
-        <p style="margin-top: 10px;"><a href="privacy/">Privacy Policy</a> | <a href="terms/">Terms of Service</a> | <a href="tcpa/">TCPA Disclosure</a> | <a href="contact/">Contact Us</a></p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: var(--white); margin-bottom: 15px;"><i class="fa-solid fa-file-shield"></i> Simple Quote Solutions</div>
+                    <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 15px;">Connecting consumers with trusted licensed carriers, accredited financial institutions, and verified home service professionals nationwide.</p>
+                    <p style="font-size: 0.82rem; color: #64748B;"><i class="fa-solid fa-location-dot"></i> <span id="footer-address">123 Financial Plaza, Suite 400, Wilmington, DE 19801</span></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Insurance</h4>
+                    <ul>
+                        <li><a href="#" onclick="showVertical('auto-insurance')">Auto Insurance</a></li>
+                        <li><a href="#" onclick="showVertical('home-insurance')">Home Insurance</a></li>
+                        <li><a href="#" onclick="showVertical('health-insurance')">Health Insurance</a></li>
+                        <li><a href="#" onclick="showVertical('final-expense')">Final Expense</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Financial & Services</h4>
+                    <ul>
+                        <li><a href="#" onclick="showVertical('debt-relief')">Debt Relief</a></li>
+                        <li><a href="#" onclick="showVertical('ssdi')">SSDI Assistance</a></li>
+                        <li><a href="#" onclick="showVertical('pest-control')">Pest Control</a></li>
+                        <li><a href="#" onclick="showVertical('home-services')">Home Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="#" onclick="showStaticPage('privacy')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showStaticPage('terms')">Terms of Use</a></li>
+                        <li><a href="#" onclick="showStaticPage('ccpa')">Do Not Sell / Share My Info</a></li>
+                        <li><a href="#" onclick="showStaticPage('disclosures')">Advertising Disclosures</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-disclaimer">
+                    <strong>Advertising Disclaimer:</strong> Simple Quote Solutions is an independent quote matching and referral service, not an insurance carrier, lender, debt settlement company, or government agency. We match consumers with third-party licensed providers. Services and rates vary by state and individual qualification. We are not affiliated with the Social Security Administration or Healthcare.gov.
+                </div>
+                <div class="footer-copyright">
+                    <span>&copy; 2026 Simple Quote Solutions. All Rights Reserved.</span>
+                    <span>Support: <span id="footer-email">support@simplequotesolutions.com</span></span>
+                </div>
+            </div>
+        </div>
     </footer>
-
+    <div class="mobile-call-bar">
+        <div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Speak With Expert Now</div>
+            <div style="font-weight: 700; font-size: 1.05rem;" class="dynamic-phone">+1-800-555-0199</div>
+        </div>
+        <a href="tel:18005550199" class="dynamic-phone-href"><i class="fa-solid fa-phone"></i> Call Now</a>
+    </div>
+    <div class="cookie-banner" id="cookieBanner">
+        <p>We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept", you agree to our use of cookies.</p>
+        <div class="cookie-actions">
+            <button class="btn-sm btn-primary-block" style="background: var(--accent);" onclick="acceptCookies()">Accept</button>
+            <button class="btn-sm btn-secondary" onclick="rejectCookies()">Decline</button>
+        </div>
+    </div>
     <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyAMPJQbQw7zctmpA3Flen-H2NG4gk1wKTDXNkS4J1uXavidkE2WFS51RbVU2mEZmGeYQ/exec";
-
-        function openModal(serviceName) {
-            document.getElementById('selectedService').value = serviceName;
-            document.getElementById('modalTitle').innerText = "Get " + serviceName + " Quote";
-            document.getElementById('leadModal').style.display = 'flex';
-            document.getElementById('leadForm').style.display = 'block';
-            document.getElementById('formSuccess').style.display = 'none';
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.dynamic-phone').forEach(el => el.innerText = CONFIG.phoneNumber);
+            document.querySelectorAll('.dynamic-phone-href').forEach(el => el.href = CONFIG.phoneHref);
+            document.getElementById('footer-address').innerText = CONFIG.address;
+            document.getElementById('footer-email').innerText = CONFIG.supportEmail;
+            if(!localStorage.getItem('cookieConsent')) { document.getElementById('cookieBanner').style.display = 'block'; }
+        });
+        function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').style.display = 'none'; }
+        function rejectCookies() { localStorage.setItem('cookieConsent', 'declined'); document.getElementById('cookieBanner').style.display = 'none'; }
+        const VERTICAL_DATA = {
+            "auto-insurance": {
+                title: "Auto Insurance Coverage", subtitle: "Compare top-rated US auto insurers and unlock major multi-policy discounts instantly.",
+                heroImg: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Compare quotes from top national carriers.", "Bundle home and auto policies for maximum savings.", "Customizable liability and collision coverage limits.", "Instant proof of insurance delivery."],
+                formSteps: [
+                    { title: "Step 1: Location & Vehicle", fields: [{label: "ZIP Code", name: "zipCode", type: "text", placeholder: "90210"}, {label: "Vehicle Year & Make", name: "vehicleInfo", type: "text", placeholder: "2023 Toyota Camry"}] },
+                    { title: "Step 2: Driving History", fields: [{label: "Accidents / Tickets in Past 3 Years?", name: "accidents", type: "select", options: ["None", "1 Minor Ticket", "1 Accident", "Multiple"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "John Doe"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "john@example.com"}] }
+                ],
+                disclaimer: "Auto insurance quotes provided by licensed independent insurance partners.",
+                faqs: [{ q: "How can I lower my car insurance premium?", a: "Bundle home and auto policies, maintain a clean driving record, and ask about safety discounts." }]
+            },
+            "home-insurance": {
+                title: "Homeowner Insurance Protection", subtitle: "Safeguard your property and belongings against storm, fire, theft, and liability claims.",
+                heroImg: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Comprehensive dwelling and personal property coverage.", "Liability protection against visitor injuries.", "Additional living expense coverage during repairs."],
+                formSteps: [
+                    { title: "Step 1: Property Location", fields: [{label: "Property ZIP Code", name: "zipCode", type: "text", placeholder: "75001"}, {label: "Property Type", name: "propType", type: "select", options: ["Single Family Home", "Condominium", "Townhouse"]}] },
+                    { title: "Step 2: Coverage Details", fields: [{label: "Estimated Home Value", name: "homeValue", type: "select", options: ["Under $200k", "$200k - $350k", "$350k - $500k", "$500k+"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "Jane Smith"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "jane@example.com"}] }
+                ],
+                disclaimer: "Home insurance policies are underwritten by licensed carriers.",
+                faqs: [{ q: "What does standard home insurance cover?", a: "Standard policies cover dwelling structure, personal belongings, and liability protection." }]
+            },
+            "health-insurance": {
+                title: "Health Insurance & Marketplace Plans", subtitle: "Find individual, family, and ACA Marketplace health coverage options tailored for you.",
+                heroImg: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Compare ACA Marketplace and private health options.", "Coverage for doctor visits, prescriptions, and preventive care.", "Subsidy eligibility check based on household income."],
+                formSteps: [
+                    { title: "Step 1: Location & Household", fields: [{label: "ZIP Code", name: "zipCode", type: "text", placeholder: "30301"}, {label: "Household Size", name: "hhSize", type: "select", options: ["1 Person", "2 People", "3-4 People", "5+ People"]}] },
+                    { title: "Step 2: Coverage Type", fields: [{label: "Seeking Coverage For", name: "coverageType", type: "select", options: ["Individual", "Family", "Self-Employed"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "Robert Johnson"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "robert@example.com"}] }
+                ],
+                disclaimer: "We are not affiliated with Healthcare.gov or any government agency.",
+                faqs: [{ q: "Am I eligible for health insurance subsidies?", a: "Subsidies depend on household income relative to Federal Poverty Level guidelines." }]
+            },
+            "final-expense": {
+                title: "Final Expense & Life Insurance", subtitle: "Protect your family from funeral costs and end-of-life financial stress.",
+                heroImg: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Affordable whole life policies with fixed premiums.", "No medical exam required for qualifying senior plans.", "Cash benefit paid directly to beneficiaries tax-free."],
+                formSteps: [
+                    { title: "Step 1: Age & Location", fields: [{label: "ZIP Code", name: "zipCode", type: "text", placeholder: "60601"}, {label: "Your Age Range", name: "ageRange", type: "select", options: ["50-60", "61-70", "71-80", "80+"]}] },
+                    { title: "Step 2: Coverage Amount", fields: [{label: "Desired Benefit Amount", name: "benefitAmt", type: "select", options: ["$5,000 - $10,000", "$10,000 - $20,000", "$20,000 - $35,000"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "Margaret Davis"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "margaret@example.com"}] }
+                ],
+                disclaimer: "Final expense life insurance policies are issued by licensed insurance carriers.",
+                faqs: [{ q: "Do I need a medical exam?", a: "Many final expense plans require no medical exam, only simple health questions." }]
+            },
+            "debt-relief": {
+                title: "Debt Relief & Settlement Programs", subtitle: "Reduce your unsecured credit card and medical debt legally without bankruptcy.",
+                heroImg: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Combine multiple debts into one lower monthly payment.", "Work with certified specialists to negotiate principal balances.", "Stop collection calls legally."],
+                formSteps: [
+                    { title: "Step 1: Total Debt Amount", fields: [{label: "Approximate Unsecured Debt", name: "debtAmount", type: "select", options: ["$10,000 - $15,000", "$15,000 - $25,000", "$25,000 - $50,000", "$50,000+"]}, {label: "ZIP Code", name: "zipCode", type: "text", placeholder: "33101"}] },
+                    { title: "Step 2: Hardship Status", fields: [{label: "Are you behind on payments?", name: "hardship", type: "select", options: ["Current on payments", "1-2 months behind", "3+ months behind / Hardship"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "Michael Scott"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "michael@example.com"}] }
+                ],
+                disclaimer: "Debt relief programs are provided by accredited third-party debt settlement companies.",
+                faqs: [{ q: "How does debt settlement work?", a: "Negotiators work directly with creditors to resolve unsecured debt for less than owed." }]
+            },
+            "ssdi": {
+                title: "SSDI (Social Security Disability) Assistance", subtitle: "Get professional advocate guidance through your Social Security claim process.",
+                heroImg: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Free evaluation of your Social Security Disability eligibility.", "Professional representation through appeals and hearings.", "No upfront fees—only pay if approved."],
+                formSteps: [
+                    { title: "Step 1: Condition & Status", fields: [{label: "ZIP Code", name: "zipCode", type: "text", placeholder: "77001"}, {label: "Current Status", name: "appStatus", type: "select", options: ["Considering Applying", "Initial Application Filed", "Denied - Need Appeal"]}] },
+                    { title: "Step 2: Work History", fields: [{label: "Unable to work for 12+ months?", name: "workHistory", type: "select", options: ["Yes", "No", "Unsure"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "Sarah Connor"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "sarah@example.com"}] }
+                ],
+                disclaimer: "We are an independent referral service not affiliated with the Social Security Administration (SSA).",
+                faqs: [{ q: "How much does representation cost?", a: "Disability advocates operate on a contingency fee approved by the SSA, meaning no upfront costs." }]
+            },
+            "pest-control": {
+                title: "Pest Control & Extermination Services", subtitle: "Connect with licensed local exterminators and professional pest management.",
+                heroImg: "https://images.unsplash.com/photo-1584467735811-628b0fb6a18d?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Fast inspection for termites, rodents, ants, and bed bugs.", "Licensed, insured, and background-checked technicians.", "Eco-friendly and family-safe treatments available."],
+                formSteps: [
+                    { title: "Step 1: Pest Issue", fields: [{label: "ZIP Code", name: "zipCode", type: "text", placeholder: "98101"}, {label: "Main Pest Problem", name: "pestType", type: "select", options: ["Termites", "Rodents (Mice/Rats)", "Ants / Roaches", "Bed Bugs / Spiders"]}] },
+                    { title: "Step 2: Property Type", fields: [{label: "Property Type", name: "propType", type: "select", options: ["Single Family Home", "Townhouse / Condo", "Commercial Property"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "David Miller"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "david@example.com"}] }
+                ],
+                disclaimer: "Pest control services are performed by independent local licensed exterminators.",
+                faqs: [{ q: "How quickly can an exterminator arrive?", a: "Many local partners offer same-day or next-day emergency inspection appointments." }]
+            },
+            "home-services": {
+                title: "Home Improvement & Solar Contractors", subtitle: "Roofing, solar panel installation, window replacement, and HVAC upgrades.",
+                heroImg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Compare multiple contractor bids for roofing, solar, and windows.", "Licensed and insured professional home contractors.", "Energy-efficient upgrade financing available."],
+                formSteps: [
+                    { title: "Step 1: Project Type", fields: [{label: "ZIP Code", name: "zipCode", type: "text", placeholder: "85001"}, {label: "Select Service Project", name: "projectType", type: "select", options: ["Roof Replacement / Repair", "Solar Panel Installation", "Window Replacement", "HVAC Upgrade"]}] },
+                    { title: "Step 2: Timeline", fields: [{label: "Project Timeline", name: "timeline", type: "select", options: ["Immediately", "Within 1 Month", "Planning & Research"]}] },
+                    { title: "Step 3: Contact Details", fields: [{label: "Full Name", name: "fullName", type: "text", placeholder: "Amanda Clark"}, {label: "Phone Number", name: "phone", type: "tel", placeholder: "(555) 000-0000"}, {label: "Email Address", name: "email", type: "email", placeholder: "amanda@example.com"}] }
+                ],
+                disclaimer: "Home improvement estimates are provided by independent licensed contractors.",
+                faqs: [{ q: "Are contractor quotes free?", a: "Yes, contractor estimates and consultations arranged through our network are completely free." }]
+            }
+        };
+        function showHome() {
+            document.querySelectorAll('.main-view, .static-page-view').forEach(el => el.classList.remove('active'));
+            document.getElementById('home-view').classList.add('active');
+            document.getElementById('vertical-view-container').style.display = 'none';
+            window.scrollTo(0,0);
         }
-
-        function closeModal() {
-            document.getElementById('leadModal').style.display = 'none';
+        function handleQuickZip(e) {
+            e.preventDefault();
+            const service = document.getElementById('quickServiceSelect').value;
+            const zip = document.getElementById('quickZipInput').value;
+            showVertical(service, zip);
         }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            let modal = document.getElementById('leadModal');
-            if (event.target == modal) {
-                closeModal();
+        function showVertical(verticalKey, prefilledZip = "") {
+            document.querySelectorAll('.main-view, .static-page-view').forEach(el => el.classList.remove('active'));
+            document.getElementById('home-view').classList.remove('active');
+            const container = document.getElementById('vertical-view-container');
+            container.style.display = 'block';
+            const data = VERTICAL_DATA[verticalKey];
+            if(!data) return;
+            let html = `
+                <div class="vertical-detail-grid">
+                    <div class="vertical-info">
+                        <h2>${data.title}</h2>
+                        <p>${data.subtitle}</p>
+                        <div class="benefits-list">
+                            ${data.benefits.map(b => `<div class="benefit-item"><i class="fa-solid fa-circle-check"></i> <span>${b}</span></div>`).join('')}
+                        </div>
+                        <div style="margin-top: 30px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); height: 260px;">
+                            <img src="${data.heroImg}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="quote-wizard-card">
+                            <h3 style="margin-bottom: 5px;">Get Your Free Quote</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Complete this fast secure form to connect with licensed providers.</p>
+                            <form id="verticalWizardForm" onsubmit="submitWizardForm(event, '${verticalKey}')">
+                                <input type="hidden" name="service" value="${data.title}">
+                                <input type="hidden" name="trustedform_cert_url" id="hidden_tf" value="https://cert.trustedform.com/placeholder_cert_token">
+                                <input type="hidden" name="jornaya_leadid" id="hidden_leadid" value="LEADID_PLACEHOLDER_ABC123">
+                                <input type="hidden" name="page_url" id="hidden_pageurl" value="">
+                                <input type="hidden" name="utm_source" id="hidden_utm_source" value="direct">
+                                <input type="hidden" name="utm_campaign" id="hidden_utm_campaign" value="general">
+                                <div class="wizard-step-pane active" id="wizard-step-0">
+                                    ${data.formSteps[0].fields.map(f => renderField(f, prefilledZip)).join('')}
+                                    <div class="wizard-actions">
+                                        <button type="button" class="btn-primary-block" onclick="nextWizardStep(1)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                                <div class="wizard-step-pane" id="wizard-step-1">
+                                    ${data.formSteps[1].fields.map(f => renderField(f)).join('')}
+                                    <div class="wizard-actions">
+                                        <button type="button" class="btn-secondary" onclick="nextWizardStep(0)">Back</button>
+                                        <button type="button" class="btn-primary-block" onclick="nextWizardStep(2)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                                <div class="wizard-step-pane" id="wizard-step-2">
+                                    ${data.formSteps[2].fields.map(f => renderField(f)).join('')}
+                                    <div class="tcpa-checkbox-wrap">
+                                        <input type="checkbox" id="tcpa_consent" required>
+                                        <label for="tcpa_consent" style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal; line-height: 1.35;">
+                                            By checking this box and clicking submit, I provide express written consent authorizing ${CONFIG.brandName} and its partner network of licensed insurance carriers, debt specialists, or home service contractors to contact me via telephone calls, automated dialers, SMS/text messages, or artificial/prerecorded voice at the phone number provided above. Consent is not a condition of purchase. I agree to the <a href="#" onclick="showStaticPage('privacy')" style="color: var(--accent);">Privacy Policy</a> and <a href="#" onclick="showStaticPage('terms')" style="color: var(--accent);">Terms of Use</a>.
+                                        </label>
+                                    </div>
+                                    <div class="wizard-actions" style="margin-top: 15px;">
+                                        <button type="button" class="btn-secondary" onclick="nextWizardStep(1)">Back</button>
+                                        <button type="submit" class="btn-primary-block">Submit Free Request <i class="fa-solid fa-check"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-accordion">
+                    <h3>Frequently Asked Questions</h3>
+                    ${data.faqs.map(faq => `
+                        <div class="faq-item" onclick="toggleFaq(this)">
+                            <div class="faq-question"><span>${faq.q}</span><i class="fa-solid fa-chevron-down"></i></div>
+                            <div class="faq-answer"><p>${faq.a}</p></div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div style="margin-top: 30px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 20px;">
+                    <strong>Compliance Disclosure:</strong> ${data.disclaimer}
+                </div>
+            `;
+            document.getElementById('vertical-content-target').innerHTML = html;
+            document.getElementById('hidden_pageurl').value = window.location.href;
+            const urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.get('utm_source')) document.getElementById('hidden_utm_source').value = urlParams.get('utm_source');
+            if(urlParams.get('utm_campaign')) document.getElementById('hidden_utm_campaign').value = urlParams.get('utm_campaign');
+            window.scrollTo(0,0);
+        }
+        function nextWizardStep(stepIndex) {
+            document.querySelectorAll('.wizard-step-pane').forEach((pane, idx) => {
+                if(idx === stepIndex) pane.classList.add('active');
+                else pane.classList.remove('active');
+            });
+        }
+        function renderField(field, prefilledVal = "") {
+            if(field.type === 'select') {
+                return `<div class="form-group"><label>${field.label}</label><select name="${field.name}" class="form-control" required><option value="">-- Please Select --</option>${field.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}</select></div>`;
+            } else {
+                let valAttr = prefilledVal && field.name === 'zipCode' ? `value="${prefilledVal}"` : '';
+                return `<div class="form-group"><label>${field.label}</label><input type="${field.type}" name="${field.name}" class="form-control" placeholder="${field.placeholder}" ${valAttr} required></div>`;
             }
         }
-
-        // URL se SubID capture
-        const urlParams = new URLSearchParams(window.location.search);
-        const subid = urlParams.get('subid') || urlParams.get('click_id') || 'Direct';
-
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+        function toggleFaq(el) { el.classList.toggle('active'); }
+        async function submitWizardForm(e, verticalKey) {
             e.preventDefault();
-            const btn = this.querySelector('button');
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
             btn.disabled = true;
 
             let userIp = "Unknown";
@@ -208,21 +584,66 @@
                 userIp = ipData.ip;
             } catch (err) {}
 
-            const formData = new FormData(this);
+            const formData = new FormData(e.target);
             formData.append('ip', userIp);
             formData.append('userAgent', navigator.userAgent);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const subid = urlParams.get('subid') || urlParams.get('click_id') || 'Direct';
             formData.append('subid', subid);
 
-            fetch(SCRIPT_URL, { method: 'POST', body: formData })
-            .then(res => {
-                document.getElementById('leadForm').style.display = 'none';
-                document.getElementById('formSuccess').style.display = 'block';
-            })
-            .catch(err => {
-                document.getElementById('leadForm').style.display = 'none';
-                document.getElementById('formSuccess').style.display = 'block';
-            });
-        });
+            fetch(CONFIG.formEndpoint, { method: 'POST', body: formData })
+            .then(res => showThankYouPage(verticalKey))
+            .catch(err => showThankYouPage(verticalKey));
+        }
+        function showThankYouPage(verticalKey) {
+            const container = document.getElementById('vertical-content-target');
+            container.innerHTML = `
+                <div style="text-align: center; padding: 60px 20px; background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                    <i class="fa-solid fa-circle-check" style="font-size: 64px; color: var(--cta-green); margin-bottom: 20px;"></i>
+                    <h2 style="font-size: 2rem; margin-bottom: 12px;">Thank You! Your Request is Received.</h2>
+                    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; font-size: 1.05rem;">
+                        We are currently matching your profile with our verified licensed partners for <strong>${verticalKey.replace('-', ' ').toUpperCase()}</strong>. A specialist will reach out to you shortly.
+                    </p>
+                    <div style="background: var(--bg-light); padding: 25px; border-radius: var(--radius-md); max-width: 500px; margin: 0 auto 30px; border: 1px solid var(--border-color);">
+                        <p style="font-size: 0.9rem; margin-bottom: 10px; font-weight: 600;">Need immediate assistance?</p>
+                        <a href="${CONFIG.phoneHref}" style="font-size: 1.4rem; font-weight: 800; color: var(--primary);"><i class="fa-solid fa-phone" style="color: var(--accent);"></i> <span class="dynamic-phone">${CONFIG.phoneNumber}</span></a>
+                    </div>
+                    <button class="btn-primary-block" style="max-width: 250px; margin: 0 auto;" onclick="showHome()">Return to Homepage</button>
+                </div>
+            `;
+            window.scrollTo(0,0);
+        }
+        function showStaticPage(pageKey) {
+            document.querySelectorAll('.main-view, .vertical-view').forEach(el => el.classList.remove('active'));
+            document.getElementById('home-view').classList.remove('active');
+            document.getElementById('vertical-view-container').style.display = 'none';
+            let staticContainer = document.getElementById('static-page-container');
+            staticContainer.classList.add('active');
+            let contentHTML = "";
+            switch(pageKey) {
+                case 'privacy':
+                    contentHTML = `<h1>Privacy Policy</h1><p>Last updated: 2026</p><p>${CONFIG.brandName} respects your privacy and is committed to protecting your personal information.</p><h2>1. Information We Collect</h2><p>We collect personal information provided voluntarily, including name, phone, email, ZIP, and vertical questionnaire responses.</p><h2>2. TCPA Consent</h2><p>By submitting your request, you consent to receive telephone calls and automated text messages from us and certified partners.</p>`;
+                    break;
+                case 'terms':
+                    contentHTML = `<h1>Terms of Use</h1><p>Welcome to ${CONFIG.brandName}. By using our site, you agree to our terms.</p><h2>1. Service Nature</h2><p>We are an independent lead referral platform, not a direct lender, carrier, or government agency.</p>`;
+                    break;
+                case 'ccpa':
+                    contentHTML = `<h1>Do Not Sell / Share My Information</h1><p>Under CCPA, California residents can opt out of personal data sharing. Email opt-out requests to ${CONFIG.supportEmail}.</p>`;
+                    break;
+                case 'disclosures':
+                    contentHTML = `<h1>Advertising Disclosures</h1><p>${CONFIG.brandName} receives financial compensation from participating network partners when connected with qualified consumers.</p>`;
+                    break;
+                case 'about':
+                    contentHTML = `<h1>About Us</h1><p>${CONFIG.brandName} simplifies finding trusted US insurance coverage, financial relief programs, and home services.</p>`;
+                    break;
+                case 'contact':
+                    contentHTML = `<h1>Contact Us</h1><p>Email: ${CONFIG.supportEmail}<br>Phone: ${CONFIG.phoneNumber}<br>Address: ${CONFIG.address}</p>`;
+                    break;
+            }
+            staticContainer.innerHTML = `<div style="margin-bottom: 25px;"><button class="back-btn" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Back to Homepage</button></div><div class="static-page-view active" style="margin: 0; box-shadow: none; border: none; padding: 0;">${contentHTML}</div>`;
+            window.scrollTo(0,0);
+        }
     </script>
 </body>
 </html>
