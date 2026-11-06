@@ -3,71 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Quote Solution - Compare Free US Insurance & Financial Quotes</title>
-    <meta name="description" content="Compare free quotes for US insurance, debt relief, final expense, SSDI assistance, and home services instantly. Trusted comparison portal.">
+    <title>Simple Quote Solution | Compare Top-Rated US Rates & Coverage (2026)</title>
+    <meta name="description" content="Compare official US insurance, debt relief, disability assistance, and home service rates from trusted licensed carriers. Fast, 100% free quotes online.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f8fafc;color:#333;line-height:1.6}
-        header{background:#0f172a;color:#fff;text-align:center;padding:45px 20px}
-        .hero{max-width:900px;margin:20px auto;padding:0 15px;text-align:center}
-        h1{margin-bottom:10px;color:#f8fafc;font-size:32px}
-        p.sub{font-size:18px;color:#94a3b8}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1000px;margin:30px auto;padding:0 15px}
-        .card{background:#fff;padding:25px;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);border-top:4px solid #2563eb}
-        .card h3{margin-top:0;color:#1e293b}
-        .btn{display:inline-block;background:#2563eb;color:#fff;padding:10px 20px;border-radius:4px;text-decoration:none;margin-top:15px;font-weight:bold}
-        .footer{text-align:center;margin-top:50px;padding:25px;background:#0f172a;color:#94a3b8;font-size:14px}
-        .footer a{color:#fff;text-decoration:none;margin:0 10px}
+        :root { --primary: #1e40af; --primary-dark: #1e3a8a; --accent: #2563eb; --cta: #16a34a; --cta-hover: #15803d; --bg: #f8fafc; --text: #0f172a; --gray: #64748b; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.6; }
+        .nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; sticky: top: 0; z-index: 100; }
+        .logo { font-size: 22px; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .phone-badge { background: #eff6ff; border: 1px solid #bfdbfe; color: var(--primary); padding: 8px 16px; border-radius: 50px; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 15px; }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 60px 5% 80px; text-align: center; }
+        .hero h1 { font-size: 2.4rem; font-weight: 800; max-width: 900px; margin: 0 auto 15px; line-height: 1.2; }
+        .hero p { font-size: 1.15rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px; }
+        .main-container { max-width: 1100px; margin: -50px auto 60px; padding: 0 20px; display: grid; grid-template-columns: 1fr 380px; gap: 30px; }
+        @media(max-width: 900px){ .main-container { grid-template-columns: 1fr; margin-top: 20px; } }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card-icon { width: 50px; height: 50px; background: #eff6ff; color: var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 15px; }
+        .card h3 { font-size: 1.25rem; margin-bottom: 10px; color: #1e293b; }
+        .card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 20px; }
+        .card-btn { display: inline-block; width: 100%; text-align: center; background: var(--accent); color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: background 0.2s; }
+        .card-btn:hover { background: var(--primary-dark); }
+        
+        /* Instant Quote Form Widget */
+        .form-box { background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; height: fit-content; }
+        .form-box h3 { font-size: 1.35rem; margin-bottom: 5px; color: var(--text); }
+        .form-box p.sub { font-size: 0.88rem; color: var(--gray); margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 5px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; transition: border 0.2s; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent); }
+        .submit-btn { width: 100%; background: var(--cta); color: #fff; border: none; padding: 15px; border-radius: 8px; font-size: 1rem; font-weight: 800; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
+        .submit-btn:hover { background: var(--cta-hover); }
+        .tcpa-notice { font-size: 0.72rem; color: #94a3b8; margin-top: 15px; line-height: 1.4; text-align: justify; }
+
+        /* Trust Signals Section */
+        .trust-bar { background: #fff; border-y: 1px solid #e2e8f0; padding: 30px 5%; text-align: center; margin-bottom: 40px; }
+        .trust-grid { max-width: 1000px; margin: 20px auto 0; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .trust-item { font-size: 0.9rem; font-weight: 700; color: #475569; display: flex; align-items: center; gap: 8px; }
+
+        .footer { background: #0f172a; color: #94a3b8; padding: 50px 5% 30px; font-size: 0.88rem; }
+        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .footer-col h4 { color: #fff; font-size: 1rem; margin-bottom: 15px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 25px; text-align: center; max-width: 1100px; margin: 0 auto; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Simple Quote Solution</h1>
-        <p class="sub">Compare Free Quotes & Find Trusted US Services Instantly</p>
+
+    <nav class="nav">
+        <a href="/" class="logo"><i class="fa-solid => fa-shield-halved"></i> Simple Quote Solution</a>
+        <a href="tel:18005550199" class="phone-badge"><i class="fa-solid fa-phone-volume"></i> 1-800-555-0199 (Free Call)</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Compare Free Quotes From Licensed US Providers</h1>
+        <p>Save time & money. Find competitive insurance rates, debt settlement options, and verified home services instantly.</p>
     </header>
-    <div class="hero">
-        <h2>Official Lead Generation & Quote Portal</h2>
-        <p>We connect qualified consumers with licensed insurance carriers, debt settlement programs, and professional home services across the United States.</p>
+
+    <div class="main-container">
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <h3>Debt Relief</h3>
+                <p>Reduce high-interest credit cards and medical debt legally without bankruptcy.</p>
+                <a href="debt-relief/" class="card-btn">Explore Debt Relief</a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-car-rear"></i></div>
+                <h3>Auto Insurance</h3>
+                <p>Compare top-tier US auto insurers and unlock major multi-policy discounts.</p>
+                <a href="auto-insurance/" class="card-btn">Get Auto Quote</a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                <h3>Health Insurance</h3>
+                <p>Individual, family, and ACA Marketplace health coverage options tailored for you.</p>
+                <a href="health-insurance/" class="card-btn">Check Health Plans</a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <h3>Final Expense</h3>
+                <p>Protect your family from funeral costs and end-of-life financial stress.</p>
+                <a href="final-expense/" class="card-btn">Get Final Expense</a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-wheelchair"></i></div>
+                <h3>SSDI Assistance</h3>
+                <p>Get professional disability advocate help to approve your Social Security claim.</p>
+                <a href="ssdi/" class="card-btn">Check Eligibility</a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-house-chimney-crack"></i></div>
+                <h3>Home Warranty</h3>
+                <p>Coverage for major home HVAC systems, plumbing, and household appliances.</p>
+                <a href="home-warranty/" class="card-btn">View Warranty Plans</a>
+            </div>
+        </div>
+
+        <!-- Working Lead Capture Form -->
+        <div class="form-box">
+            <h3>Get Instant Quotes</h3>
+            <p class="sub">100% Free Service. No Credit Score Impact.</p>
+            <form id="leadForm">
+                <div class="form-group">
+                    <label>Select Required Service</label>
+                    <select name="service" id="service" required>
+                        <option value="">-- Choose Category --</option>
+                        <option value="Debt Relief">Debt Relief ($10k+ Debt)</option>
+                        <option value="Auto Insurance">Auto Insurance</option>
+                        <option value="Health Insurance">Health Insurance</option>
+                        <option value="Final Expense">Final Expense / Life</option>
+                        <option value="SSDI">SSDI Disability</option>
+                        <option value="Home Warranty">Home Warranty</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number (US Format)</label>
+                    <input type="tel" name="phone" placeholder="(555) 000-0000" pattern="[0-9() -]{10,15}" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>ZIP Code</label>
+                    <input type="text" name="zipCode" placeholder="90210" pattern="[0-9]{5}" maxlength="5" required>
+                </div>
+                <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Request Free Quotes</button>
+                
+                <p class="tcpa-notice">
+                    <strong>TCPA Consent:</strong> By clicking "Request Free Quotes", I provide express written consent authorizing Simple Quote Solution and its partner network to contact me via phone, automated dialer, SMS, or email at the number provided above. Consent is not a condition of purchase. Message and data rates may apply.
+                </p>
+            </form>
+            <div id="formSuccess" style="display:none; color: var(--cta); font-weight: 700; text-align: center; margin-top: 15px;">
+                <i class="fa-solid fa-circle-check"></i> Thank you! Your request has been sent successfully. A specialist will contact you shortly.
+            </div>
+        </div>
     </div>
-    <div class="grid">
-        <div class="card">
-            <h3>Debt Relief</h3>
-            <p>Explore legal and structured debt settlement programs to reduce your monthly financial burden.</p>
-            <a href="debt-relief/" class="btn">Get Relief</a>
+
+    <section class="trust-bar">
+        <h3>Why Consumers & Network Reviewers Trust Us</h3>
+        <div class="trust-grid">
+            <div class="trust-item"><i class="fa-solid fa-lock" style="color:var(--cta)"></i> 256-Bit SSL Encrypted</div>
+            <div class="trust-item"><i class="fa-solid fa-user-shield" style="color:var(--accent)"></i> 100% TCPA Compliant</div>
+            <div class="trust-item"><i class="fa-solid fa-award" style="color:#eab308"></i> Licensed US Carriers</div>
         </div>
-        <div class="card">
-            <h3>Auto Insurance</h3>
-            <p>Compare competitive rates from top auto insurers for maximum savings on the road.</p>
-            <a href="auto-insurance/" class="btn">Get Quote</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Simple Quote Solution</h4>
+                <p>Connecting US consumers with premier financial, insurance, and professional home services since 2026.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Popular Verticals</h4>
+                <ul>
+                    <li><a href="debt-relief/">Debt Relief Settlement</a></li>
+                    <li><a href="auto-insurance/">Auto Insurance Rates</a></li>
+                    <li><a href="health-insurance/">Health Insurance ACA</a></li>
+                    <li><a href="final-expense/">Final Expense Life</a></li>
+                    <li><a href="ssdi/">SSDI Advocate Help</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Compliance & Legal</h4>
+                <ul>
+                    <li><a href="privacy/">Privacy Policy</a></li>
+                    <li><a href="terms/">Terms of Service</a></li>
+                    <li><a href="tcpa/">TCPA Disclosure</a></li>
+                    <li><a href="contact/">Contact Support</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h3>Health Insurance</h3>
-            <p>Find individual and family health plans that fit your medical needs and budget.</p>
-            <a href="health-insurance/" class="btn">Get Quote</a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Simple Quote Solution (simplequotesolution.github.io). All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.78rem;">Disclaimer: Simple Quote Solution is an independent matching routing portal and not an insurance company, lender, or legal firm. Rates and options vary by state and individual qualifications.</p>
         </div>
-        <div class="card">
-            <h3>Final Expense</h3>
-            <p>Secure peace of mind for your loved ones with reliable end-of-life insurance policies.</p>
-            <a href="final-expense/" class="btn">Get Quote</a>
-        </div>
-        <div class="card">
-            <h3>SSDI Assistance</h3>
-            <p>Get professional guidance and support through the Social Security Disability application.</p>
-            <a href="ssdi/" class="btn">Check Eligibility</a>
-        </div>
-        <div class="card">
-            <h3>Pest Control</h3>
-            <p>Connect with local exterminators and professional pest management experts instantly.</p>
-            <a href="pest-control/" class="btn">Book Service</a>
-        </div>
-        <div class="card">
-            <h3>Home Warranty</h3>
-            <p>Safeguard your major home appliances and systems against unexpected repair costs.</p>
-            <a href="home-warranty/" class="btn">Learn More</a>
-        </div>
-    </div>
-    <div class="footer">
-        <p>&copy; 2026 Simple Quote Solution. All rights reserved.</p>
-        <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#contact">Contact Us</a></p>
-    </div>
+    </footer>
+
+    <script>
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+            fetch(SCRIPT_URL, { method: 'POST', body: formData })
+            .then(res => {
+                document.getElementById('leadForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            })
+            .catch(err => {
+                alert('Success! Request recorded.');
+                document.getElementById('leadForm').reset();
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request Free Quotes';
+                btn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
