@@ -10,52 +10,63 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--p:#0A192F;--pl:#1E3A8A;--a:#0D9488;--g:#16A34A;--gh:#15803D;--bg:#F8FAFC;--t:#0F172A;--m:#64748B;--b:#E2E8F0;--c:#0D9488}
+:root{--p:#0A192F;--pl:#1E3A8A;--gold:#C9A24B;--gl:#E5C97A;--g:#16A34A;--gh:#15803D;--bg:#F4F6FA;--t:#0F172A;--m:#64748B;--b:#E2E8F0;--c:#0D9488}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font:16px/1.6 Inter,system-ui,sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden}
-h1,h2,h3,h4{font-family:Poppins,sans-serif;color:var(--p);line-height:1.2}
+h1,h2{font-family:'Playfair Display',Georgia,serif;color:var(--p);line-height:1.2}
+h3,h4{font-family:Poppins,sans-serif;color:var(--p);line-height:1.25}
 a{text-decoration:none;color:inherit;cursor:pointer}ul{list-style:none}
-.top{background:var(--p);color:#94A3B8;font-size:.8rem;padding:8px 5%;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.top a{margin-left:16px}.top a:hover{color:#fff}
-.nav{background:#fff;border-bottom:1px solid var(--b);padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px #0000000d}
-.logo{font:800 1.3rem Poppins,sans-serif;color:var(--p)}.logo b{color:var(--a)}
+.top{background:#050E1F;border-bottom:1px solid #C9A24B55;color:#94A3B8;font-size:.8rem;padding:8px 5%;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.top a{color:var(--gl);font-weight:600;margin-left:18px}.top a:hover{color:#fff}
+.nav{background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid #E5C97A88;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px #0000000d}
+.logo{font:800 1.4rem Poppins,sans-serif;color:var(--p)}.logo b{color:var(--gold)}
 .menu{display:flex;align-items:center;gap:24px}
-.ni{position:relative}.nl{font-weight:500;font-size:.95rem;padding:8px 0;display:block}.nl:hover{color:var(--a)}
-.dd{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--b);border-radius:10px;box-shadow:0 12px 28px #0002;width:250px;padding:8px 0;display:none;z-index:1100}
+.ni{position:relative}
+.nl{position:relative;font-weight:500;font-size:.95rem;padding:8px 0;display:block}
+.nl:after{content:"";position:absolute;left:0;bottom:2px;height:2px;width:0;background:var(--gold);transition:.25s}.nl:hover:after{width:100%}
+.dd{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--b);border-radius:12px;box-shadow:0 14px 30px #0002;width:250px;padding:8px 0;display:none;z-index:1100}
 .ni:hover .dd{display:block}
-.dd a{display:block;padding:10px 18px;font-size:.9rem}.dd a:hover{background:var(--bg);color:var(--a)}
-.cta{background:var(--g);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:.9rem;transition:.2s}.cta:hover{background:var(--gh)}
+.dd a{display:block;padding:10px 18px;font-size:.9rem}.dd a:hover{background:var(--bg);color:var(--c)}
+.cta{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gl));color:var(--p);padding:10px 18px;border-radius:8px;font-weight:700;font-size:.9rem;box-shadow:0 6px 16px #c9a24b55;transition:.2s}
+.cta:hover{transform:translateY(-1px)}
 .burger{display:none;font-size:1.6rem;cursor:pointer;background:none;border:0;color:var(--p)}
-.hero{background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;padding:64px 5% 80px}
+.hero{position:relative;color:#fff;padding:80px 5% 96px;background:linear-gradient(135deg,rgba(5,14,31,.94),rgba(30,58,138,.86)),url(images/hero.jpg) center/cover,#0A192F}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .hc{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.hero h1{font-size:2.6rem;color:#fff;margin-bottom:18px}.hero h1 span{color:#38BDF8}
+.eyebrow{display:inline-block;background:#C9A24B22;border:1px solid #C9A24B88;color:var(--gl);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:600;margin-bottom:18px;letter-spacing:.04em}
+.hero h1{font-size:3rem;color:#fff;margin-bottom:18px}.hero h1 span{color:var(--gl)}
 .hero p{color:#CBD5E1;font-size:1.1rem;margin-bottom:24px}
 .badges{display:flex;gap:18px;flex-wrap:wrap;font-size:.88rem;color:#CBD5E1}
-.card{background:#fff;color:var(--t);padding:28px;border-radius:18px;box-shadow:0 20px 40px #0003}
-.card h3{font-size:1.2rem;margin-bottom:6px}.card .sub{font-size:.88rem;color:var(--m);margin-bottom:16px}
+.card{background:#fff;color:var(--t);padding:28px;border-radius:20px;border-top:4px solid var(--gold);box-shadow:0 30px 60px #0000004d}
+.card h3{font-size:1.2rem;margin-bottom:6px}.sub{font-size:.88rem;color:var(--m);margin-bottom:16px}
 .fg{margin-bottom:14px}.fg label{display:block;font-size:.82rem;font-weight:600;color:#334155;margin-bottom:5px}
 .fc{width:100%;padding:12px;border:1.5px solid var(--b);border-radius:8px;font:inherit;outline:none;background:#fff}
 .fc:focus{border-color:var(--c);box-shadow:0 0 0 3px #0d948826}
-.btn{width:100%;background:var(--g);color:#fff;border:0;padding:14px;border-radius:8px;font:700 1rem Inter,sans-serif;cursor:pointer;transition:.2s}
-.btn:hover{background:var(--gh)}.btn:disabled{opacity:.6;cursor:wait}
-.btn2{background:var(--b);color:var(--t);border:0;padding:14px 20px;border-radius:8px;font:600 1rem Inter,sans-serif;cursor:pointer}
+.btn{width:100%;background:linear-gradient(135deg,var(--g),var(--gh));color:#fff;border:0;padding:14px;border-radius:10px;font:700 1rem Inter,sans-serif;cursor:pointer;box-shadow:0 8px 18px #16a34a44;transition:.2s}
+.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.6;cursor:wait}
+.btn2{background:var(--b);color:var(--t);border:0;padding:14px 20px;border-radius:10px;font:600 1rem Inter,sans-serif;cursor:pointer}
+.trust{background:#fff;border-bottom:1px solid var(--b)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:22px 5%}
+.ti{display:flex;gap:12px;align-items:center;font-weight:600;font-size:.9rem;color:var(--p)}.ti b{font-size:1.6rem}
 .sec{padding:70px 5%}.wrap{max-width:1200px;margin:auto}
-.sh{text-align:center;max-width:700px;margin:0 auto 44px}.sh h2{font-size:2rem;margin-bottom:10px}.sh p{color:var(--m)}
+.sh{text-align:center;max-width:700px;margin:0 auto 44px}.sh h2{font-size:2.2rem}
+.sh h2:after{content:"";display:block;width:60px;height:3px;background:var(--gold);margin:12px auto 0;border-radius:3px}
+.sh p{color:var(--m);margin-top:12px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.sc{background:#fff;padding:32px 24px;border-radius:12px;border:1px solid var(--b);box-shadow:0 8px 20px #0000000f;position:relative}
-.sc i{position:absolute;top:-16px;left:22px;background:var(--a);color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 .9rem Inter,sans-serif;font-style:normal}
-.sc h3{margin:8px 0 8px;font-size:1.1rem}.sc p{color:var(--m);font-size:.92rem}
+.sc{background:#fff;padding:32px 24px;border-radius:14px;border:1px solid var(--b);box-shadow:0 8px 20px #0000000f;position:relative}
+.sc i{position:absolute;top:-16px;left:22px;background:linear-gradient(135deg,var(--gold),var(--gl));color:var(--p);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 .9rem Inter,sans-serif;font-style:normal}
+.sc h3{margin:8px 0;font-size:1.1rem}.sc p{color:var(--m);font-size:.92rem}
 .vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
-.vc{background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--b);box-shadow:0 8px 20px #0000000f;transition:.2s;display:flex;flex-direction:column}
-.vc:hover{transform:translateY(-5px);box-shadow:0 18px 32px #0000001f}
-.vi{height:170px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:3.4rem}
+.vc{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--b);box-shadow:0 8px 20px #0000000f;transition:.25s;display:flex;flex-direction:column}
+.vc:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 22px 40px #0A192F26}
+.vi{height:190px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:3.4rem}
 .vb{padding:20px;display:flex;flex-direction:column;flex:1}.vb h3{font-size:1.15rem;margin-bottom:6px}.vb p{color:var(--m);font-size:.9rem;margin-bottom:14px;flex:1}
-.vl{background:#EFF6FF;color:var(--pl);padding:9px 14px;border-radius:8px;font-weight:600;font-size:.88rem;text-align:center}.vc:hover .vl{background:var(--pl);color:#fff}
-.vh{color:#fff;padding:50px 5%;background-size:cover;background-position:center}
-.vh h1{color:#fff;font-size:2.3rem;margin-bottom:10px}.vh p{color:#E2E8F0;max-width:620px}
+.vl{background:#EFF6FF;color:var(--pl);padding:9px 14px;border-radius:8px;font-weight:600;font-size:.88rem;text-align:center}.vc:hover .vl{background:var(--p);color:#fff}
+.vh{color:#fff;padding:64px 5%;background-size:cover;background-position:center}
+.vh h1{color:#fff;font-size:2.6rem;margin-bottom:10px}.vh p{color:#E2E8F0;max-width:620px}
 .vd{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
 .bi{display:flex;gap:10px;margin-bottom:12px;font-weight:500;font-size:.95rem}.bi:before{content:"✔";color:var(--c)}
 .note{background:#FFFBEB;border:1px solid #FDE68A;color:#78350F;padding:12px 14px;border-radius:8px;font-size:.85rem;margin:18px 0}
@@ -68,18 +79,22 @@ a{text-decoration:none;color:inherit;cursor:pointer}ul{list-style:none}
 .fi{background:#fff;border:1px solid var(--b);border-radius:8px;margin-bottom:10px;overflow:hidden}
 .fq{padding:16px 18px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;gap:10px}.fq:after{content:"+";color:var(--m)}
 .fi.on .fq:after{content:"−"}.fa{display:none;padding:0 18px 16px;color:var(--m);font-size:.92rem}.fi.on .fa{display:block}
-.page{max-width:860px;margin:44px auto;background:#fff;padding:38px;border-radius:16px;border:1px solid var(--b)}
-.page h1{font-size:2rem;margin-bottom:16px}.page h2{font-size:1.2rem;margin:20px 0 8px}.page p,.page li{color:#475569;font-size:.95rem;margin-bottom:10px}.page ul{margin-left:20px;list-style:disc}
-.foot{background:var(--p);color:#94A3B8;padding:54px 5% 28px;font-size:.88rem}
+.page{max-width:860px;margin:44px auto;background:#fff;padding:38px;border-radius:16px;border:1px solid var(--b);border-top:4px solid var(--gold);box-shadow:0 14px 34px #0A192F14}
+.page h1{font-size:2rem;margin-bottom:16px}.page h2{font-size:1.2rem;margin:20px 0 8px;font-family:Poppins,sans-serif}
+.page p,.page li{color:#475569;font-size:.95rem;margin-bottom:10px}.page ul{margin-left:20px;list-style:disc}
+.cband{background:linear-gradient(135deg,#0A192F,#1E3A8A)}.cband h2{color:#fff;font-size:1.8rem;margin-bottom:8px}
+.cgrid{display:grid;grid-template-columns:1.2fr 1fr auto;gap:30px;align-items:center}
+.cband p{color:#CBD5E1}.cband a:not(.cta){color:var(--gl);text-decoration:underline}
+.foot{background:linear-gradient(180deg,#0A192F,#050E1F);border-top:3px solid var(--gold);color:#94A3B8;padding:54px 5% 28px;font-size:.88rem}
 .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:34px}
-.foot h4{color:#fff;margin-bottom:14px;font-size:1rem}.foot li{margin-bottom:8px}.foot a:hover{color:#fff}
+.foot h4{color:var(--gl);margin-bottom:14px;font-size:1rem}.foot li{margin-bottom:8px}.foot a:hover{color:#fff}
 .disc{border-top:1px solid #1E293B;padding-top:22px;font-size:.76rem;color:#64748B;line-height:1.5}.disc p{margin-bottom:10px}
 .callbar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--p);color:#fff;padding:10px 18px;z-index:1050;justify-content:space-between;align-items:center;font-size:.9rem}
 .callbar a{background:var(--g);padding:8px 16px;border-radius:8px;font-weight:700}
 #ck{position:fixed;bottom:16px;left:16px;right:16px;max-width:480px;background:#fff;border:1px solid var(--b);padding:16px;border-radius:12px;box-shadow:0 12px 30px #0003;z-index:2000;display:none;font-size:.85rem;color:var(--m)}
 #ck div{display:flex;gap:10px;margin-top:10px}#ck button{padding:8px 14px;border-radius:8px;border:0;font-weight:600;cursor:pointer}
 .ty{text-align:center;padding:90px 5%}.ty h1{font-size:2.2rem;margin-bottom:12px}
-@media(max-width:992px){.hc,.vd,.fgrid,.steps{grid-template-columns:1fr}.hero h1{font-size:2rem}
+@media(max-width:992px){.hc,.vd,.fgrid,.steps,.cgrid{grid-template-columns:1fr}.trust .wrap{grid-template-columns:1fr 1fr}.hero h1{font-size:2.1rem}.vh h1{font-size:1.9rem}.top a{margin-left:12px}
 .burger{display:block}.menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:14px 5%;gap:0;border-bottom:1px solid var(--b)}
 .menu.open{display:flex}.dd{position:static;display:block;box-shadow:none;border:0;width:auto;padding:0 0 8px 12px}
 body.hascall{padding-bottom:58px}body.hascall .callbar{display:flex}body.hascall #ck{bottom:70px}}
@@ -88,42 +103,39 @@ body.hascall{padding-bottom:58px}body.hascall .callbar{display:flex}body.hascall
 /* ===== CONFIG: yahan apni real details daalein ===== */
 const CONFIG={
  brand:"Simple Quote Solutions",
- phone:"",                      // network ka tracking number, e.g. "+18005551234" (khali = call buttons hide)
- phoneText:"",                  // display text, e.g. "1-800-555-1234"
- endpoint:"",                   // Google Apps Script web app URL (neeche Step 2) ya network ka post URL
- address:"",                    // real business address
- email:"",                      // real support email
- company:""                     // registered company name
+ company:"",      // registered company name
+ address:"",      // real business address
+ email:"",        // real support email
+ phone:"",        // e.g. "+18005551234" (khali = call buttons hide)
+ phoneText:"",    // e.g. "1-800-555-1234"
+ endpoint:""      // Google Apps Script web app URL ya network post URL
 };
 </script>
-<!-- TRUSTEDFORM: apna account se mila script yahan paste karein (ya neeche wala standard snippet uncomment karein)
-<script>
-(function(){var f='xxTrustedFormCertUrl',p=false,i=false,t=document.createElement('script');t.type='text/javascript';t.async=true;
-t.src='http'+('https:'==document.location.protocol?'s':'')+'://api.trustedform.com/trustedform.js?provide_referrer='+escape(p)+'&field='+escape(f)+'&l='+new Date().getTime()+Math.random()+'&invert_field_sensitivity='+i;
-var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(t,s);})();
-</script> -->
-<!-- JORNAYA: apna LeadiD script yahan paste karein (hidden field name: leadid_token) -->
+<!-- TRUSTEDFORM: apna script yahan paste karein -->
+<!-- JORNAYA LeadiD: apna script yahan paste karein (hidden field: leadid_token) -->
 </head>
 <body>
-<div class="top"><span>Free quote-request service. Not an insurer, lender or government agency.</span>
-<span><a href="#/about">About</a><a href="#/contact">Contact</a><a href="#/disclosure">Advertising Disclosure</a></span></div>
+<div class="top"><span>🇺🇸 Serving consumers across the United States · Free quote-request service</span>
+<span><a href="#/about">About Us</a><a href="#/contact">Contact</a><a href="#/privacy">Privacy</a><a href="#/disclosure">Advertising Disclosure</a></span></div>
 <header class="nav">
 <a class="logo" href="#/">Simple<b>Quote</b></a>
 <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
 <nav class="menu" id="menu">
+<a class="nl" href="#/">Home</a>
 <div class="ni"><a class="nl">Insurance ▾</a><div class="dd"><a href="#/auto">🚗 Auto Insurance</a><a href="#/home">🏠 Home Insurance</a><a href="#/health">🩺 Health Insurance</a><a href="#/final-expense">🕊️ Final Expense / Life</a></div></div>
 <div class="ni"><a class="nl">Financial ▾</a><div class="dd"><a href="#/debt-relief">💳 Debt Relief</a><a href="#/ssdi">📄 SSDI Help</a></div></div>
 <div class="ni"><a class="nl">Home Services ▾</a><div class="dd"><a href="#/pest-control">🐜 Pest Control</a><a href="#/home-services">🔧 Roofing, Solar &amp; More</a></div></div>
-<a class="cta" id="navcall" style="display:none"></a>
+<a class="nl" href="#/about">About</a><a class="nl" href="#/contact">Contact</a>
+<a class="cta" id="navcall" style="display:none"></a><a class="cta" href="#/">Get Free Quote</a>
 </nav>
 </header>
 <main id="app"></main>
 <footer class="foot"><div class="wrap">
 <div class="fgrid">
 <div><h4 id="fb"></h4><p>We help consumers request quotes and connect with independent third-party providers.</p><p id="faddr" style="margin-top:10px"></p></div>
-<div><h4>Services</h4><ul><li><a href="#/auto">Auto</a></li><li><a href="#/home">Home</a></li><li><a href="#/health">Health</a></li><li><a href="#/final-expense">Final Expense</a></li></ul></div>
-<div><h4>More</h4><ul><li><a href="#/debt-relief">Debt Relief</a></li><li><a href="#/ssdi">SSDI Help</a></li><li><a href="#/pest-control">Pest Control</a></li><li><a href="#/home-services">Home Services</a></li></ul></div>
-<div><h4>Legal</h4><ul><li><a href="#/privacy">Privacy Policy</a></li><li><a href="#/terms">Terms of Use</a></li><li><a href="#/donotsell">Do Not Sell/Share My Info</a></li><li><a href="#/disclosure">Advertising Disclosure</a></li><li><a href="#/about">About Us</a></li><li><a href="#/contact">Contact</a></li></ul></div>
+<div><h4>Insurance</h4><ul><li><a href="#/auto">Auto</a></li><li><a href="#/home">Home</a></li><li><a href="#/health">Health</a></li><li><a href="#/final-expense">Final Expense</a></li></ul></div>
+<div><h4>More Services</h4><ul><li><a href="#/debt-relief">Debt Relief</a></li><li><a href="#/ssdi">SSDI Help</a></li><li><a href="#/pest-control">Pest Control</a></li><li><a href="#/home-services">Home Services</a></li></ul></div>
+<div><h4>Company &amp; Legal</h4><ul><li><a href="#/about">About Us</a></li><li><a href="#/contact">Contact</a></li><li><a href="#/privacy">Privacy Policy</a></li><li><a href="#/terms">Terms of Use</a></li><li><a href="#/donotsell">Do Not Sell/Share My Info</a></li><li><a href="#/disclosure">Advertising Disclosure</a></li></ul></div>
 </div>
 <div class="disc">
 <p>We are not an insurance company, insurance agency, lender, debt settlement company, law firm or government agency. We connect consumers with independent third-party providers who may contact you. Providers and services may not be available in all states. Quotes, rates, approval and savings are not guaranteed.</p>
@@ -133,85 +145,88 @@ var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(t,s);
 <div class="callbar" id="callbar"><span>Questions? Call us</span><a id="callbtn"></a></div>
 <div id="ck"><span>We use cookies and similar technologies for site function, analytics and to record your consent. See our <a href="#/privacy" style="text-decoration:underline">Privacy Policy</a>.</span>
 <div><button style="background:var(--g);color:#fff" onclick="ckSet('yes')">Accept</button><button style="background:var(--b)" onclick="ckSet('no')">Decline</button></div></div>
-
 <script>
 const $=s=>document.querySelector(s);
 const V={
 "auto":{n:"Auto Insurance",i:"🚗",c:"#2563EB",h:"Compare Auto Insurance Quotes",s:"Answer a few questions and request quotes from independent providers.",
- b:["Takes about a minute","Free, no obligation","Options from multiple providers","Liability, full coverage and more"],
+ b:["Takes about a minute","Free, no obligation","Options from multiple providers"],
  q:[["coverage","Coverage needed",["Liability only","Full coverage","Not sure"]],["vehicles","Number of vehicles",["1","2","3 or more"]],["insured","Currently insured?",["Yes","No"]]],
- f:[["What affects my auto insurance rate?","Driving record, vehicle, location, age and coverage level are common factors. Each provider rates differently."],["Do I have to buy anything?","No. Requesting quotes is free and does not obligate you to purchase."]],x:""},
+ f:[["What affects my auto insurance rate?","Driving record, vehicle, location, age and coverage level are common factors. Each provider rates differently."]],x:""},
 "home":{n:"Home Insurance",i:"🏠",c:"#0D9488",h:"Find Home Insurance Options",s:"Tell us about your home and request quotes from independent providers.",
- b:["Quick, simple questions","Free, no obligation","Homeowners, condo and renters options","Compare before you decide"],
+ b:["Quick, simple questions","Free, no obligation","Homeowners, condo and renters options"],
  q:[["owner","Own or rent?",["Own","Rent"]],["ptype","Property type",["Single family","Condo","Townhome","Other"]],["insured","Currently insured?",["Yes","No"]]],
- f:[["What does home insurance usually cover?","Coverage varies by policy and provider. A provider will explain what is and is not included."],["Can renters request quotes?","Yes. Select Rent and providers may offer renters coverage."]],x:""},
+ f:[["What does home insurance usually cover?","Coverage varies by policy and provider. A provider will explain what is and is not included."]],x:""},
 "health":{n:"Health Insurance",i:"🩺",c:"#E11D48",h:"Explore Health Insurance Options",s:"Request information from independent, licensed providers.",
- b:["Individual, family and short-term options","Free, no obligation","No medical exam to request quotes","Talk to a licensed provider"],
+ b:["Individual and family options","Free, no obligation","Talk to a licensed provider"],
  q:[["who","Coverage for",["Just me","Me and spouse","Family"]],["age","Age group",["18-29","30-49","50-64","65+"]],["insured","Currently insured?",["Yes","No"]]],
- f:[["Is this Healthcare.gov?","No. We are not affiliated with Healthcare.gov, the Health Insurance Marketplace or Medicare."],["Is this a government program?","No. We are a private referral service."]],
+ f:[["Is this Healthcare.gov?","No. We are not affiliated with Healthcare.gov, the Health Insurance Marketplace or Medicare."]],
  x:"We are not affiliated with or endorsed by Healthcare.gov, the Health Insurance Marketplace, Medicare, Medicaid or any government agency."},
 "final-expense":{n:"Final Expense Insurance",i:"🕊️",c:"#7C3AED",h:"Final Expense Coverage Options",s:"Learn about burial and final expense plans. No pressure.",
- b:["Plans for ages 50 to 85 may be available","Free, no obligation","Options to help cover funeral costs","Speak with a licensed agent"],
+ b:["Plans for many ages may be available","Free, no obligation","Speak with a licensed agent"],
  q:[["age","Age group",["50-59","60-69","70-79","80+"]],["amount","Coverage amount",["$5,000","$10,000","$15,000 or more","Not sure"]],["tobacco","Tobacco use?",["Yes","No"]]],
- f:[["What is final expense insurance?","A small whole life policy often used to help pay funeral and related costs. Terms vary by provider."],["Will someone pressure me?","You decide. A licensed agent may explain options, and you are never required to buy."]],x:""},
+ f:[["What is final expense insurance?","A small whole life policy often used to help pay funeral and related costs. Terms vary by provider."]],x:""},
 "debt-relief":{n:"Debt Relief",i:"💳",c:"#16A34A",h:"See Debt Relief Options",s:"Speak with independent providers about programs that may fit your situation. Results vary.",
- b:["Free consultation with providers","No obligation","Options for credit card and other unsecured debt","Information to help you compare"],
+ b:["Free consultation with providers","No obligation","Options for unsecured debt"],
  q:[["debt","Total unsecured debt",["Under $10,000","$10,000-$20,000","$20,000-$50,000","$50,000+"]],["dtype","Main debt type",["Credit cards","Personal loans","Medical bills","Other"]],["behind","Behind on payments?",["Yes","No"]]],
- f:[["Will my debt be reduced?","We cannot promise any amount or outcome. Results depend on your situation and the provider."],["Can debt relief affect my credit?","Yes, some programs can negatively affect your credit score and may have fees or tax consequences. Ask the provider for details."]],
+ f:[["Will my debt be reduced?","We cannot promise any amount or outcome. Results depend on your situation and the provider."],["Can debt relief affect my credit?","Yes, some programs can negatively affect your credit and may involve fees or tax consequences. Ask the provider for details."]],
  x:"Debt relief results vary and are not guaranteed. Programs may negatively affect your credit, may involve fees, and not all debts qualify. Not available in all states."},
 "ssdi":{n:"SSDI Help",i:"📄",c:"#0369A1",h:"Get Help With Your SSDI Claim",s:"Connect with independent professionals who assist with Social Security Disability claims.",
- b:["Free case review request","No obligation","Help with applications and appeals","Independent advocates and attorneys"],
+ b:["Free case review request","No obligation","Help with applications and appeals"],
  q:[["working","Currently working?",["Yes","No"]],["condition","Condition expected to prevent work for 12+ months?",["Yes","No","Not sure"]],["applied","Applied already?",["No","Yes, pending","Yes, denied"]]],
- f:[["Are you the Social Security Administration?","No. We are not affiliated with the SSA. You can apply directly at ssa.gov at no cost."],["Does this guarantee approval?","No. Approval is decided only by the SSA."]],
+ f:[["Are you the Social Security Administration?","No. We are not affiliated with the SSA. You can apply directly at ssa.gov at no cost."]],
  x:"We are not affiliated with, endorsed by or connected to the Social Security Administration (SSA) or any government agency. Approval of benefits is determined solely by the SSA."},
 "pest-control":{n:"Pest Control",i:"🐜",c:"#EA580C",h:"Get Local Pest Control Quotes",s:"Connect with independent pest control professionals near you.",
- b:["Quick quote requests","Free, no obligation","Ants, rodents, termites and more","Local professionals"],
+ b:["Quick quote requests","Free, no obligation","Ants, rodents, termites and more"],
  q:[["pest","Pest problem",["Ants","Roaches","Rodents","Termites","Bed bugs","Other"]],["prop","Property type",["House","Apartment","Business"]],["when","Timing",["As soon as possible","This week","Just researching"]]],
- f:[["How fast can someone come?","It depends on the local provider and their schedule."],["Are providers licensed?","Providers are independent. Verify licenses and insurance before hiring."]],x:""},
+ f:[["Are providers licensed?","Providers are independent. Verify licenses and insurance before hiring."]],x:""},
 "home-services":{n:"Roofing, Solar & Windows",i:"🔧",c:"#CA8A04",h:"Quotes for Roofing, Solar, Windows and More",s:"Tell us about your project and request quotes from independent contractors.",
- b:["Simple project questions","Free, no obligation","Roofing, solar, windows, HVAC","Compare local options"],
+ b:["Simple project questions","Free, no obligation","Compare local options"],
  q:[["service","Service needed",["Roofing","Solar","Windows","HVAC","Other"]],["owner","Do you own the home?",["Yes","No"]],["when","Timeline",["As soon as possible","1-3 months","Just researching"]]],
- f:[["Are contractors licensed?","Providers are independent. Always verify licenses, insurance and references before hiring."],["Will solar save me money?","Savings vary by home, location and provider. We make no guarantees."]],x:""}
+ f:[["Will solar save me money?","Savings vary by home, location and provider. We make no guarantees."]],x:""}
 };
 const HOW=[["Tell us what you need","Answer a few quick questions."],["Get matched","We connect you with independent providers."],["Compare and decide","Review options. No obligation."]];
+const NM=CONFIG.company||CONFIG.brand;
 const LEGAL={
-privacy:["Privacy Policy",`<p><b>Last updated: 2026.</b> This policy explains how ${CONFIG.company||CONFIG.brand} ("we") handles information collected through this website.</p>
-<h2>Information we collect</h2><ul><li>Information you submit: name, phone number, email, ZIP code and your answers to quote questions.</li><li>Technical data: IP address, browser, device, pages visited, referral source and consent records (timestamp, page URL, consent language shown).</li></ul>
-<h2>How we use and share it</h2><p>We use your information to process your request and to share it with independent third-party providers and partners who may contact you about the service you requested, including by phone, text and email where you consented. We also use it to operate, secure and improve the site and to comply with the law.</p>
-<h2>Your choices and rights</h2><p>You may request access, correction or deletion of your information, opt out of sale/sharing, or withdraw consent at any time. Email ${CONFIG.email||"our support address"}. Reply STOP to any text to opt out. Residents of California and other states may have additional rights; see <a href="#/donotsell">Do Not Sell/Share My Info</a>.</p>
-<h2>Cookies</h2><p>We use cookies for site function, analytics and attribution. You can decline non-essential cookies in the banner or in your browser.</p>
-<h2>Security and retention</h2><p>We use reasonable safeguards, but no system is 100% secure. We keep information as long as needed for the purposes above or as the law requires.</p>
-<h2>Children</h2><p>This site is not for people under 18.</p><h2>Contact</h2><p>${CONFIG.email||""} ${CONFIG.address||""}</p>`],
-terms:["Terms of Use",`<p>By using this site you agree to these terms.</p><h2>Our role</h2><p>${CONFIG.brand} is a referral and lead-generation service. We are not an insurer, agent, lender, debt settlement company, law firm or government agency, and we do not make credit, coverage or legal decisions.</p>
-<h2>No guarantees</h2><p>Information is for general purposes. We do not guarantee quotes, rates, approval, savings or outcomes. Providers are independent and solely responsible for their offers and services.</p>
+privacy:["Privacy Policy",`<p><b>Last updated: 2026.</b> This policy explains how ${NM} ("we") handles information collected through this website.</p>
+<h2>Information we collect</h2><ul><li>Information you submit: name, phone, email, ZIP code and your answers to quote questions.</li><li>Technical data: IP address, browser, device, pages visited, referral source and consent records (timestamp, page URL, consent language shown).</li></ul>
+<h2>How we use and share it</h2><p>We use your information to process your request and share it with independent third-party providers and partners who may contact you about the service you requested, including by phone, text and email where you consented. We also use it to operate, secure and improve the site and to comply with the law.</p>
+<h2>Your choices and rights</h2><p>You may request access, correction or deletion, opt out of sale/sharing, or withdraw consent at any time. Email ${CONFIG.email||"our support address"}. Reply STOP to any text to opt out. See <a href="#/donotsell">Do Not Sell/Share My Info</a>.</p>
+<h2>Cookies</h2><p>We use cookies for site function, analytics and attribution. You can decline non-essential cookies in the banner or your browser.</p>
+<h2>Security, retention and children</h2><p>We use reasonable safeguards, but no system is 100% secure. We keep information as long as needed for the purposes above or as the law requires. This site is not for people under 18.</p>`],
+terms:["Terms of Use",`<p>By using this site you agree to these terms.</p><h2>Our role</h2><p>${NM} is a referral and lead-generation service. We are not an insurer, agent, lender, debt settlement company, law firm or government agency.</p>
+<h2>No guarantees</h2><p>We do not guarantee quotes, rates, approval, savings or outcomes. Providers are independent and solely responsible for their offers and services.</p>
 <h2>Your information</h2><p>You agree to provide accurate information and to be at least 18 years old. By submitting a form with consent, you authorize us and our partners to contact you as described on the form.</p>
-<h2>Liability</h2><p>To the extent permitted by law, we are not liable for damages arising from your use of the site or dealings with providers.</p><h2>Changes</h2><p>We may update these terms at any time.</p>`],
-about:["About Us",`<p>${CONFIG.brand} helps consumers request quotes and connect with independent providers for insurance, financial and home services. We are not a provider ourselves. Our goal is a simple, transparent, no-pressure process.</p><p>${CONFIG.address||""}</p>`],
-contact:["Contact Us",`<p><b>${CONFIG.company||CONFIG.brand}</b></p><p>${CONFIG.address||"Address: add in CONFIG"}</p><p>Email: ${CONFIG.email||"add in CONFIG"}</p>${CONFIG.phoneText?`<p>Phone: ${CONFIG.phoneText}</p>`:""}`],
-donotsell:["Do Not Sell or Share My Personal Information",`<p>Residents of California and other states may have the right to opt out of the sale or sharing of their personal information. To submit a request, email ${CONFIG.email||"our support address"} with the subject "Do Not Sell/Share" and include the name, phone number and email you used on our site. We will verify and process your request as required by law.</p>`],
-disclosure:["Advertising Disclosure",`<p>${CONFIG.brand} is compensated by independent providers and advertising partners when consumers submit requests. This compensation may affect which providers are shown and how they are presented. We do not review every provider or every product on the market. Quotes and rates are not guaranteed and may change.</p>`]
+<h2>Liability</h2><p>To the extent permitted by law, we are not liable for damages arising from your use of the site or dealings with providers. We may update these terms at any time.</p>`],
+about:["About Us",`<p>${NM} helps consumers request quotes and connect with independent providers for insurance, financial and home services. We are not a provider ourselves.</p>
+<h2>How we work</h2><p>You tell us what you need through a short form. With your consent, we share your request with independent providers who may contact you. Using our service is free, and you are never required to buy anything.</p>
+<h2>Our commitments</h2><ul><li>Clear disclosure of how we are compensated</li><li>No fake reviews, countdown timers or misleading claims</li><li>Respect for your privacy and your right to opt out</li></ul>
+${CONFIG.address?`<p>${CONFIG.address}</p>`:""}`],
+contact:["Contact Us",`<p><b>${NM}</b></p>${CONFIG.address?`<p>📍 ${CONFIG.address}</p>`:""}${CONFIG.email?`<p>✉ ${CONFIG.email}</p>`:""}${CONFIG.phoneText?`<p>📞 ${CONFIG.phoneText}</p>`:""}<p>For privacy requests, opt-outs or complaints, email us and we will respond as required by law.</p>`],
+donotsell:["Do Not Sell or Share My Personal Information",`<p>Residents of California and other states may have the right to opt out of the sale or sharing of their personal information. Email ${CONFIG.email||"our support address"} with the subject "Do Not Sell/Share" and include the name, phone and email you used on our site. We will verify and process your request as required by law.</p>`],
+disclosure:["Advertising Disclosure",`<p>${NM} is compensated by independent providers and advertising partners when consumers submit requests. This compensation may affect which providers are shown and how. We do not review every provider or product on the market. Quotes and rates are not guaranteed and may change.</p>`]
 };
-/* ---------- helpers ---------- */
 const img=k=>`images/${k}.jpg`;
 function track(){const p=new URLSearchParams(location.search),s=JSON.parse(sessionStorage.getItem("trk")||"{}");
- ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","click_id","clickid","gclid","fbclid","msclkid","sub1","sub2","sub3"].forEach(k=>{if(p.get(k))s[k]=p.get(k)});
+ ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","click_id","clickid","gclid","fbclid","msclkid","sub1"].forEach(k=>{if(p.get(k))s[k]=p.get(k)});
  if(!s.landing)s.landing=location.href;sessionStorage.setItem("trk",JSON.stringify(s));return s}
 let zipPre="";
-function vcard(k){const v=V[k];return `<a class="vc" href="#/${k}" style="--c:${v.c}"><div class="vi" style="background-image:url(${img(k)}),linear-gradient(135deg,${v.c},#0A192F)">${v.i}</div><div class="vb"><h3>${v.n}</h3><p>${v.s}</p><span class="vl">Get Free Quotes →</span></div></a>`}
-function home(){return `<section class="hero"><div class="hc"><div><h1>Compare Quotes From <span>Independent Providers</span></h1>
+const stepsHTML=()=>`<div class="steps">${HOW.map((h,i)=>`<div class="sc"><i>${i+1}</i><h3>${h[0]}</h3><p>${h[1]}</p></div>`).join("")}</div>`;
+function vcard(k){const v=V[k];return `<a class="vc" href="#/${k}"><div class="vi" style="background-image:url(${img(k)}),linear-gradient(135deg,${v.c},#0A192F)">${v.i}</div><div class="vb"><h3>${v.n}</h3><p>${v.s}</p><span class="vl">Get Free Quotes →</span></div></a>`}
+function home(){return `<section class="hero"><div class="hc"><div><span class="eyebrow">🇺🇸 FREE QUOTES · UNITED STATES</span><h1>Compare Quotes From <span>Independent Providers</span></h1>
 <p>Request free quotes for insurance, financial help and home services in about a minute. No obligation.</p>
 <div class="badges"><span>✔ Free to use</span><span>✔ No obligation</span><span>✔ Your info stays private</span></div></div>
 <div class="card"><h3>Start Your Free Quote Request</h3><p class="sub">Choose a service and enter your ZIP code.</p>
 <form id="qz"><div class="fg"><label>Service</label><select class="fc" id="qs">${Object.keys(V).map(k=>`<option value="${k}">${V[k].n}</option>`).join("")}</select></div>
 <div class="fg"><label>ZIP Code</label><input class="fc" id="qzip" required pattern="\\d{5}" maxlength="5" inputmode="numeric" placeholder="e.g. 90210"></div>
 <button class="btn">Continue →</button></form></div></div></section>
+<div class="trust"><div class="wrap"><div class="ti"><b>🆓</b>Free to use</div><div class="ti"><b>🤝</b>No obligation</div><div class="ti"><b>🏢</b>Independent providers</div><div class="ti"><b>🔒</b>Encrypted connection</div></div></div>
 <section class="sec"><div class="wrap"><div class="sh"><h2>Choose a Service</h2><p>Select what you need and request free quotes.</p></div><div class="vg">${Object.keys(V).map(vcard).join("")}</div></div></section>
-<section class="sec" style="background:#fff"><div class="wrap"><div class="sh"><h2>How It Works</h2></div><div class="steps">${HOW.map((h,i)=>`<div class="sc"><i>${i+1}</i><h3>${h[0]}</h3><p>${h[1]}</p></div>`).join("")}</div></div></section>
-<section class="sec"><div class="wrap"><div class="sh"><h2>Why Use ${CONFIG.brand}</h2></div><div class="steps">
-<div class="sc"><h3>Free to use</h3><p>Requesting quotes costs you nothing.</p></div><div class="sc"><h3>Independent providers</h3><p>Options from more than one provider where available.</p></div><div class="sc"><h3>Privacy first</h3><p>See our Privacy Policy for how your data is handled.</p></div></div></div></section>`}
+<section class="sec" style="background:#fff"><div class="wrap"><div class="sh"><h2>How It Works</h2></div>${stepsHTML()}</div></section>
+<section class="sec cband"><div class="wrap cgrid"><div><h2>Questions? We are here to help.</h2><p>Learn <a href="#/about">more about us</a> or reach our team directly.</p></div>
+<div>${CONFIG.email?`<p>✉ ${CONFIG.email}</p>`:""}${CONFIG.phoneText?`<p>📞 ${CONFIG.phoneText}</p>`:""}${CONFIG.address?`<p>📍 ${CONFIG.address}</p>`:""}</div><a class="cta" href="#/contact">Contact Us</a></div></section>`}
 function form(k){const v=V[k];
  const hid=["vertical","page_url","landing_url","utm_source","utm_medium","utm_campaign","utm_term","utm_content","click_id","gclid","fbclid","xxTrustedFormCertUrl","leadid_token","timestamp","user_agent"].map(n=>`<input type="hidden" name="${n}">`).join("");
- const consent=`By checking this box and clicking "Get My Free Quotes", I provide my express written consent to ${CONFIG.company||CONFIG.brand} and the independent providers and partners that may be matched with my request to contact me at the phone number provided, including by calls and text messages made using an automatic telephone dialing system and/or artificial or prerecorded voice, even if my number is on a Do Not Call list. Consent is not a condition of purchase of any goods or services. Message/data rates may apply. I can revoke consent at any time (reply STOP to texts). I agree to the <a href="#/privacy" target="_blank">Privacy Policy</a> and <a href="#/terms" target="_blank">Terms of Use</a>.`;
+ const consent=`By checking this box and clicking "Get My Free Quotes", I provide my express written consent to ${NM} and the independent providers and partners that may be matched with my request to contact me at the phone number provided, including by calls and text messages made using an automatic telephone dialing system and/or artificial or prerecorded voice, even if my number is on a Do Not Call list. Consent is not a condition of purchase of any goods or services. Message/data rates may apply. I can revoke consent at any time (reply STOP to texts). I agree to the <a href="#/privacy" target="_blank">Privacy Policy</a> and <a href="#/terms" target="_blank">Terms of Use</a>.`;
  return `<form id="qf" class="card" novalidate><h3>Get Your Free Quotes</h3><p class="sub">${v.n} · takes about a minute</p>
 <div class="bar"><i class="on"></i><i></i><i></i></div>
 <div class="pane on"><div class="fg"><label>ZIP Code</label><input class="fc" name="zip" required pattern="\\d{5}" maxlength="5" inputmode="numeric" autocomplete="postal-code" value="${zipPre}"></div><button type="button" class="btn" data-n>Continue →</button></div>
@@ -223,24 +238,26 @@ function form(k){const v=V[k];
 <label class="cons"><input type="checkbox" name="consent" value="yes" required><span id="consent-text">${consent}</span></label>
 <div class="row"><button type="button" class="btn2" data-p>Back</button><button class="btn" type="submit">Get My Free Quotes</button></div></div>${hid}</form>`}
 function vertical(k){const v=V[k];
- return `<section class="vh" style="background-image:linear-gradient(rgba(10,25,47,.82),rgba(10,25,47,.82)),url(${img(k)}),linear-gradient(135deg,${v.c},#0A192F)"><div class="wrap"><h1>${v.i} ${v.h}</h1><p>${v.s}</p></div></section>
+ return `<section class="vh" style="background-image:linear-gradient(rgba(10,25,47,.84),rgba(10,25,47,.84)),url(${img(k)}),linear-gradient(135deg,${v.c},#0A192F)"><div class="wrap"><h1>${v.i} ${v.h}</h1><p>${v.s}</p></div></section>
 <section class="sec" style="--c:${v.c}"><div class="wrap"><div class="vd"><div><h2 style="font-size:1.8rem;margin-bottom:16px">What to expect</h2>${v.b.map(x=>`<div class="bi">${x}</div>`).join("")}
 ${v.x?`<div class="note">${v.x}</div>`:""}
 <div class="faq"><h3>Frequently Asked Questions</h3>${v.f.concat([["Is this service free?","Yes. Requesting quotes is free and does not obligate you to buy anything."],["Who will contact me?","Independent providers may contact you by phone, text or email based on the consent you give on the form."]]).map(f=>`<div class="fi"><div class="fq">${f[0]}</div><div class="fa">${f[1]}</div></div>`).join("")}</div></div>
 <div>${form(k)}</div></div>
-<div class="sec" style="padding:50px 0 0"><div class="sh"><h2>How It Works</h2></div><div class="steps">${HOW.map((h,i)=>`<div class="sc"><i>${i+1}</i><h3>${h[0]}</h3><p>${h[1]}</p></div>`).join("")}</div></div></div></section>`}
+<div style="padding-top:50px"><div class="sh"><h2>How It Works</h2></div>${stepsHTML()}</div></div></section>`}
 function wire(k){
  document.querySelectorAll(".fq").forEach(e=>e.onclick=()=>e.parentNode.classList.toggle("on"));
  const f=$("#qf");if(!f)return;
  const panes=[...f.querySelectorAll(".pane")],bars=[...f.querySelectorAll(".bar i")];let cur=0;
  const show=n=>{cur=n;panes.forEach((p,i)=>p.classList.toggle("on",i===n));bars.forEach((b,i)=>b.classList.toggle("on",i<=n))};
- f.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>{if([...panes[cur].querySelectorAll("input,select")].every(e=>e.reportValidity()))show(cur+1)});
+ const go=()=>{if([...panes[cur].querySelectorAll("input,select")].every(e=>e.reportValidity()))show(cur+1)};
+ f.querySelectorAll("[data-n]").forEach(b=>b.onclick=go);
  f.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>show(cur-1));
  const t=track();f.vertical.value=k;f.page_url.value=location.href;f.landing_url.value=t.landing||"";
  ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","fbclid"].forEach(n=>{if(t[n])f[n].value=t[n]});
  f.click_id.value=t.click_id||t.clickid||t.sub1||"";f.user_agent.value=navigator.userAgent;
  f.onsubmit=async e=>{e.preventDefault();
-  if(!panes[cur].querySelector("[name=consent]")||!f.consent.checked){f.consent.reportValidity();return}
+  if(cur<2){go();return}
+  if(!f.consent.checked){f.consent.reportValidity();return}
   if(![...f.querySelectorAll("[required]")].every(x=>x.checkValidity())){f.reportValidity();return}
   const btn=f.querySelector("[type=submit]");btn.disabled=true;btn.textContent="Submitting...";
   f.timestamp.value=new Date().toISOString();
@@ -253,7 +270,7 @@ function wire(k){
   }catch(err){btn.disabled=false;btn.textContent="Get My Free Quotes";alert("Something went wrong. Please try again.")}
  }}
 function render(){
- const h=(location.hash||"#/").replace("#/","").split("?")[0],app=$("#app");let k=null;
+ const h=location.hash.replace(/^#\/?/,"").split("?")[0],app=$("#app");let k=null;
  $("#menu").classList.remove("open");
  if(h===""){app.innerHTML=home();$("#qz").onsubmit=e=>{e.preventDefault();zipPre=$("#qzip").value;location.hash="#/"+$("#qs").value}}
  else if(V[h]){app.innerHTML=vertical(h);k=h}
@@ -264,13 +281,12 @@ function render(){
  document.title=(V[h]?V[h].n+" | ":LEGAL[h]?LEGAL[h][0]+" | ":"")+CONFIG.brand;
 }
 function ckSet(v){localStorage.setItem("ck",v);$("#ck").style.display="none"}
-/* ---------- init ---------- */
 track();
 $("#fb").textContent=CONFIG.brand;
 $("#faddr").textContent=[CONFIG.company,CONFIG.address,CONFIG.email].filter(Boolean).join(" · ");
-$("#copy").textContent="© 2026 "+(CONFIG.company||CONFIG.brand)+". All rights reserved.";
+$("#copy").textContent="© 2026 "+NM+". All rights reserved.";
 if(CONFIG.phone){const t="tel:"+CONFIG.phone.replace(/[^+\d]/g,""),x=CONFIG.phoneText||CONFIG.phone;
- $("#navcall").style.display="block";$("#navcall").href=t;$("#navcall").textContent="📞 "+x;
+ $("#navcall").style.display="inline-block";$("#navcall").href=t;$("#navcall").textContent="📞 "+x;
  $("#callbtn").href=t;$("#callbtn").textContent="📞 "+x;document.body.classList.add("hascall")}
 if(!localStorage.getItem("ck"))$("#ck").style.display="block";
 addEventListener("hashchange",render);render();
