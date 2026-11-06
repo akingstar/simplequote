@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+Sitemap: https://akingstar.github.io/simplequote/sitemap.xml
