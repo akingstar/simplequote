@@ -1,0 +1,168 @@
+import os
+
+pages = {
+    "debt-relief": {
+        "title": "Debt Relief",
+        "bg": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Take control of your finances. Reduce high-interest credit card and unsecured debt legally without bankruptcy."
+    },
+    "auto-insurance": {
+        "title": "Auto Insurance",
+        "bg": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Compare top-tier US auto insurers and unlock major multi-policy discounts instantly."
+    },
+    "health-insurance": {
+        "title": "Health Insurance",
+        "bg": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Find individual, family, and ACA Marketplace health coverage options tailored to your medical needs."
+    },
+    "final-expense": {
+        "title": "Final Expense",
+        "bg": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Protect your family from funeral costs and end-of-life financial stress with reliable whole life policies."
+    },
+    "ssdi": {
+        "title": "SSDI Assistance",
+        "bg": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Get professional disability advocate guidance and support through your Social Security claim process."
+    },
+    "home-warranty": {
+        "title": "Home Warranty",
+        "bg": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Safeguard your major home HVAC systems, plumbing, and household appliances against unexpected repair bills."
+    },
+    "pest-control": {
+        "title": "Pest Control",
+        "bg": "https://images.unsplash.com/photo-1584467735811-628b0fb6a18d?auto=format&fit=crop&w=1920&q=80",
+        "desc": "Connect with licensed local exterminators and professional pest management experts instantly."
+    }
+}
+
+for folder, data in pages.items():
+    title = data["title"]
+    bg_img = data["bg"]
+    subtitle = data["desc"]
+    path = os.path.join(folder, "index.html")
+    os.makedirs(folder, exist_ok=True)
+    
+    html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} Quotes & Services | Simple Quote Solution</title>
+    <meta name="description" content="{subtitle}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {{ --primary: #0f172a; --accent: #2563eb; --cta: #16a34a; --bg: #f8fafc; --text: #0f172a; --gray: #64748b; }}
+        * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }}
+        body {{ background: var(--bg); color: var(--text); line-height: 1.6; }}
+        
+        .nav {{ background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }}
+        .logo {{ font-size: 19px; font-weight: 800; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 8px; }}
+        .back-home {{ color: var(--gray); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }}
+        .back-home:hover {{ color: var(--accent); }}
+
+        .hero {{ background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.85)), url('{bg_img}'); background-size: cover; background-position: center; color: #fff; padding: 70px 5% 50px; text-align: center; }}
+        .hero h1 {{ font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; }}
+        .hero p {{ font-size: 1.15rem; color: #e2e8f0; max-width: 680px; margin: 0 auto; }}
+
+        .container {{ max-width: 1000px; margin: -30px auto 50px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; position: relative; z-index: 10; }}
+        @media(max-width: 768px){{ .container {{ grid-template-columns: 1fr; margin-top: 20px; }} }}
+
+        .content-box {{ background: #fff; padding: 35px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }}
+        .content-box h2 {{ font-size: 1.4rem; margin-bottom: 15px; color: var(--primary); }}
+        .content-box p {{ color: var(--gray); margin-bottom: 15px; }}
+        .content-box ul {{ margin-left: 20px; margin-top: 15px; color: #334155; }}
+        .content-box li {{ margin-bottom: 12px; font-weight: 500; }}
+
+        .form-box {{ background: #fff; border-radius: 16px; padding: 35px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #cbd5e1; height: fit-content; }}
+        .form-box h3 {{ font-size: 1.35rem; margin-bottom: 5px; color: var(--primary); }}
+        .form-group {{ margin-bottom: 15px; }}
+        .form-group label {{ display: block; font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 6px; }}
+        .form-group input {{ width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; transition: border 0.2s; }}
+        .form-group input:focus {{ border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }}
+        
+        .submit-btn {{ width: 100%; background: var(--cta); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 800; cursor: pointer; margin-top: 5px; transition: background 0.2s, transform 0.1s; }}
+        .submit-btn:hover {{ background: #15803d; }}
+        .submit-btn:active {{ transform: scale(0.98); }}
+
+        .tcpa {{ font-size: 0.7rem; color: #94a3b8; margin-top: 14px; line-height: 1.4; text-align: justify; }}
+
+        .footer {{ background: #0f172a; color: #94a3b8; padding: 40px 5%; text-align: center; font-size: 0.85rem; margin-top: 60px; border-top: 1px solid #1e293b; }}
+        .footer a {{ color: #fff; text-decoration: none; margin: 0 10px; }}
+        .footer a:hover {{ text-decoration: underline; }}
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../" class="logo"><i class="fa-solid fa-shield-halved"></i> Simple Quote Solution</a>
+        <a href="../" class="back-home">&larr; Back to All Categories</a>
+    </nav>
+    <header class="hero">
+        <h1>{title} Services & Coverage</h1>
+        <p>{subtitle}</p>
+    </header>
+    <div class="container">
+        <div class="content-box">
+            <h2>Why Choose Our Verified {title} Network?</h2>
+            <p>We connect qualified consumers directly with top-tier licensed agents, certified specialists, and accredited US institutions to guarantee maximum savings and reliable protection.</p>
+            <ul>
+                <li><strong>100% Free Comparison:</strong> No upfront costs, hidden fees, or obligations.</li>
+                <li><strong>Verified US Providers:</strong> Partnered exclusively with trusted, licensed carriers.</li>
+                <li><strong>Secure & Confidential:</strong> Industry-standard 256-bit encryption for your data.</li>
+                <li><strong>Fast Assistance:</strong> Get connected with a dedicated specialist within seconds.</li>
+            </ul>
+        </div>
+        <div class="form-box">
+            <h3>Get Your Free Quote</h3>
+            <p style="font-size:0.82rem; color:var(--gray); margin-bottom:20px;">Takes less than 60 seconds. No credit check required.</p>
+            <form id="leadForm">
+                <input type="hidden" name="service" value="{title}">
+                <div class="form-group"><label>Full Name</label><input type="text" name="fullName" placeholder="John Doe" required></div>
+                <div class="form-group"><label>Phone Number (US Format)</label><input type="tel" name="phone" placeholder="(555) 000-0000" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required></div>
+                <div class="form-group"><label>ZIP Code</label><input type="text" name="zipCode" placeholder="90210" maxlength="5" required></div>
+                <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Request Free Quote</button>
+                <p class="tcpa"><strong>TCPA Consent:</strong> By clicking "Request Free Quote", I provide express written consent authorizing Simple Quote Solution and its partner network to contact me via phone, automated dialer, SMS, or email at the number provided. Consent is not a condition of purchase.</p>
+            </form>
+            <div id="formSuccess" style="display:none; text-align:center; padding: 40px 0;">
+                <i class="fa-solid fa-circle-check" style="font-size: 50px; color: var(--cta); margin-bottom: 12px;"></i>
+                <h3 style="color:#1e293b; font-size: 1.4rem;">Request Received!</h3>
+                <p style="color:var(--gray); font-size:0.95rem; margin-top:8px;">A licensed specialist will reach out to you shortly to review your quote options.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2026 Simple Quote Solution. All Rights Reserved.</p>
+        <p style="margin-top:12px;"><a href="../privacy/">Privacy Policy</a> | <a href="../terms/">Terms of Service</a> | <a href="../tcpa/">TCPA Disclosure</a></p>
+        <p style="margin-top:15px; font-size:0.75rem; color:#64748b;">Disclaimer: Simple Quote Solution is an independent quote matching and referral portal, not an insurance carrier, direct lender, or legal firm.</p>
+    </footer>
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyAMPJQbQw7zctmpA3Flen-H2NG4gk1wKTDXNkS4J1uXavidkE2WFS51RbVU2mEZmGeYQ/exec";
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {{
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+            let userIp = "Unknown";
+            try {{ let res = await fetch('https://api.ipify.org?format=json'); let d = await res.json(); userIp = d.ip; }} catch(e){{}}
+            const fd = new FormData(this);
+            fd.append('ip', userIp); fd.append('userAgent', navigator.userAgent);
+            fetch(SCRIPT_URL, {{ method: 'POST', body: fd }}).then(() => {{
+                document.getElementById('leadForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            }}).catch(() => {{
+                document.getElementById('leadForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            }});
+        });
+    </script>
+</body>
+</html>"""
+    
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"Upgraded professional theme for: {title}")
+
+print("All vertical landing pages upgraded with professional themes and matched background images!")
