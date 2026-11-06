@@ -148,7 +148,14 @@ for folder, data in pages.items():
             let userIp = "Unknown";
             try {{ let res = await fetch('https://api.ipify.org?format=json'); let d = await res.json(); userIp = d.ip; }} catch(e){{}}
             const fd = new FormData(this);
-            fd.append('ip', userIp); fd.append('userAgent', navigator.userAgent);
+            fd.append('ip', userIp);
+            fd.append('userAgent', navigator.userAgent);
+            
+            // URL se SubID capture
+            const urlParams = new URLSearchParams(window.location.search);
+            const subid = urlParams.get('subid') || urlParams.get('click_id') || 'Direct';
+            fd.append('subid', subid);
+
             fetch(SCRIPT_URL, {{ method: 'POST', body: fd }}).then(() => {{
                 document.getElementById('leadForm').style.display = 'none';
                 document.getElementById('formSuccess').style.display = 'block';
@@ -156,13 +163,13 @@ for folder, data in pages.items():
                 document.getElementById('leadForm').style.display = 'none';
                 document.getElementById('formSuccess').style.display = 'block';
             }});
-        });
+        }});
     </script>
 </body>
 </html>"""
     
     with open(path, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print(f"Upgraded professional theme for: {title}")
+    print(f"Upgraded professional theme with matching background for: {title}")
 
-print("All vertical landing pages upgraded with professional themes and matched background images!")
+print("All dedicated pages successfully regenerated with professional themes!")
