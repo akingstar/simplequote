@@ -1,4 +1,4 @@
-const CACHE = "simplequote-v1";
+const CACHE = "simplequote-v2";
 const CORE = ["/simplequote/", "/simplequote/index.html"];
 
 self.addEventListener("install", event => {
@@ -42,12 +42,14 @@ self.addEventListener("fetch", event => {
   }
 
   event.respondWith(
-    caches.match(request).then(hit => hit || fetch(request).then(response => {
-      if (response.ok) {
-        const copy = response.clone();
-        caches.open(CACHE).then(cache => cache.put(request, copy));
-      }
-      return response;
-    }))
+    fetch(request)
+      .then(response => {
+        if (response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(request, copy));
+        }
+        return response;
+      })
+      .catch(() => caches.match(request).then(hit => hit || Response.error()))
   );
 });
