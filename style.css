@@ -216,3 +216,21 @@ details.fi .fa{display:block;padding:0 4px 22px}details.fi[open] .fq:after{conte
 .page p,.page li{margin-bottom:10px}.page a{text-decoration:underline}.foot a{text-decoration:none}
 main>*{animation:rise .7s ease both}
 @media(max-width:992px){.guide{grid-template-columns:1fr;gap:10px}}
+
+/* AK premium polish — gold & navy */
+::selection{background:rgba(201,162,75,.35);color:#0A192F}
+:focus-visible{outline:2px solid rgba(185,148,88,.9);outline-offset:3px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#E5C97A,#C9A24B);border-radius:99px;border:3px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-track{background:transparent}
+.btn,.cta{position:relative;overflow:hidden}
+.btn:after,.cta:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-130%);transition:transform .65s ease;pointer-events:none}
+.btn:hover:after,.cta:hover:after{transform:translateX(130%)}
+.btn{box-shadow:0 10px 26px rgba(22,163,74,.28)}
+.btn:hover{box-shadow:0 14px 32px rgba(22,163,74,.34)}
+.card{box-shadow:0 30px 70px rgba(5,14,31,.35),0 0 0 1px rgba(201,162,75,.25)}
+.vc:hover,.sc:hover{box-shadow:0 24px 46px rgba(10,25,47,.16)}
+.nav{background:rgba(255,255,255,.86);border-bottom:1px solid rgba(201,162,75,.45);box-shadow:0 10px 30px rgba(10,25,47,.08)}
+.fc{transition:border-color .2s,box-shadow .2s}
+.fc:focus{outline:none;border-color:#b58f3e;box-shadow:0 0 0 3px rgba(201,162,75,.18)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
