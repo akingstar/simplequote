@@ -1,0 +1,18 @@
+{
+  "id": "/simplequote/",
+  "name": "Simple Quote Solutions",
+  "short_name": "SimpleQuote",
+  "description": "Request free quotes for insurance, financial help and home services from independent providers.",
+  "start_url": "/simplequote/",
+  "scope": "/simplequote/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0A192F",
+  "theme_color": "#0A192F",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
